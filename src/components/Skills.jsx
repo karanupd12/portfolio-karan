@@ -145,7 +145,7 @@ const Skills = () => {
           viewport={{ once: false, amount: 0.1 }}
           className="space-y-8 sm:space-y-12"
         >
-          {/* Skills Grid with improved design */}
+          {/* Skills Grid */}
           <motion.div
             variants={itemVariants}
             className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8"
@@ -156,7 +156,7 @@ const Skills = () => {
                 variants={itemVariants}
                 className="rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-950 backdrop-blur-sm relative overflow-hidden group"
               >
-                {/* Subtle glow effect */}
+                {/* Subtle glow */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"></div>
                 
                 <div className="relative">
@@ -169,7 +169,7 @@ const Skills = () => {
                     </h3>
                   </div>
 
-                  {/* Improved skill grid */}
+                  {/* skill grid */}
                   <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 justify-items-center">
                     {category.skills.map((skill, i) => (
                       <motion.div
@@ -186,7 +186,7 @@ const Skills = () => {
                         }
                         onMouseLeave={() => setHoveredSkill(null)}
                       >
-                        {/* Enhanced skill icon with better hover effect */}
+                        {/* skill icons  */}
                         <div className="bg-neutral-800/80 p-2 rounded-lg flex items-center justify-center shadow-lg border border-neutral-700/50 hover:border-blue-500/50 transition-all duration-300 backdrop-blur-sm">
                           <img
                             src={skill.imageSrc}
@@ -195,7 +195,7 @@ const Skills = () => {
                           />
                         </div>
 
-                        {/* Enhanced tooltip */}
+                        {/* tooltip */}
                         <AnimatePresence>
                           {hoveredSkill &&
                             hoveredSkill.index === `${index}-${i}` && (
@@ -218,13 +218,13 @@ const Skills = () => {
             ))}
           </motion.div>
 
-          {/* Completely Redesigned Achievement Section with Images */}
+          {/* Achievement Section  */}
           <motion.div
             ref={ref}
             variants={itemVariants}
             className="bg-gradient-to-br from-neutral-900 to-neutral-950 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-neutral-800 relative overflow-hidden"
           >
-            {/* Background lighting effect */}
+            {/* Background Blur Effect */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl"></div>
             
@@ -250,7 +250,7 @@ const Skills = () => {
                     }}
                     className="bg-neutral-800/50 backdrop-blur-sm rounded-lg sm:rounded-xl overflow-hidden border border-neutral-700/50 hover:border-blue-500/30 transition-all duration-500 group relative"
                   >
-                    {/* Image Section with Overlay */}
+                    {/* Image container */}
                     <div className="h-32 relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/30 to-neutral-900/95 z-10"></div>
                       <img 
@@ -259,7 +259,7 @@ const Skills = () => {
                         className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700 ease-out"
                       />
                       
-                      {/* Animated stats overlay */}
+                      {/* Animated stats */}
                       <div className="absolute top-0 right-0 p-3 z-20">
                         <div className="bg-neutral-900/80 backdrop-blur-sm rounded-lg p-2 border border-neutral-700/50 shadow-lg">
                           <motion.div
@@ -318,7 +318,6 @@ const Skills = () => {
                       </ul>
                     </div>
                     
-                    {/* Hover glow effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   </motion.div>
                 ))}
