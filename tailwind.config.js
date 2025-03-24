@@ -6,16 +6,43 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        black: '#000000',
-        purple: '#6B46C1',
-        white: '#FFFFFF',
-        gray: {
-          800: '#2D3748',
-          700: '#4A5568',
+
+      animation: {
+        pulse: 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+
+      keyframes: {
+        pulse: {
+          '0%, 100%': { opacity: '0.2' },
+          '50%': { opacity: '0.15' },
+        },
+      },
+
+      utilities: {
+        '.animation-delay-2000': {
+          'animation-delay': '2s',
+        },
+        '.animation-delay-3000': {
+          'animation-delay': '3s',
+        },
+        '.animation-delay-4000': {
+          'animation-delay': '4s',
+        },
+        '.animation-delay-5000': {
+          'animation-delay': '5s',
+        },
+
+        colors: {
+          black: '#000000',
+          purple: '#6B46C1',
+          white: '#FFFFFF',
+          gray: {
+            800: '#2D3748',
+            700: '#4A5568',
+          },
         },
       },
     },
-  },
-  plugins: [],
+    plugins: [],
+  }
 };

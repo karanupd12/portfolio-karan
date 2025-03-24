@@ -45,7 +45,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center bg-neutral-950 text-white py-16 px-4 md:px-8 overflow-hidden"
+      className="min-h-screen flex items-center justify-center text-white py-16 px-4 md:px-8 overflow-hidden"
     >
       <div className="max-w-7xl w-full">
         <motion.div

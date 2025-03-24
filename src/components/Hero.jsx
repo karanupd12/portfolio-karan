@@ -81,7 +81,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen bg-neutral-950 text-neutral-100 flex items-center justify-center p-4 md:p-8 lg:p-12 overflow-hidden relative"
+      className="min-h-screen text-neutral-100 flex items-center justify-center p-4 md:p-8 lg:p-12 overflow-hidden relative"
       aria-label="Hero Section"
     >
       

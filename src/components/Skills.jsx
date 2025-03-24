@@ -89,7 +89,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="min-h-screen bg-neutral-950 text-white py-12 sm:py-16 px-4 sm:px-6 md:px-8 relative overflow-hidden"
+      className="min-h-screen text-white py-12 sm:py-16 px-4 sm:px-6 md:px-8 relative overflow-hidden"
     >
       {/* Background subtle lighting effect */}
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
