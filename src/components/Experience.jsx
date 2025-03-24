@@ -26,7 +26,7 @@ const Experience = () => {
     <section 
       id="experience" 
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-cente text-white py-16 sm:py-20 px-4 md:px-8 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center text-white py-16 sm:py-20 px-4 md:px-8 relative overflow-hidden"
     >
       
       {/* Subtle Grid Background */}
