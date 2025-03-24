@@ -16,7 +16,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="footer" className="bg-neutral-950 text-white py-10">
+    <footer id="footer" className="bg-neutral-900 text-white py-10">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start">
           {/* Main Footer Content */}

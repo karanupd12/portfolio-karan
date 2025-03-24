@@ -1,211 +1,155 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import {  
-  User, 
-  FolderCode,
-  Code, 
-  Layers, 
-  Send, 
-  Menu, 
-  X,
-  ChevronUp
-} from 'lucide-react';
+import { User, FolderCode, Code, Layers, Send, Menu, X, ChevronUp } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [activeSection, setActiveSection] = useState("about");
   const lastScrollY = useRef(0);
 
+  // Navigation items configuration
   const navItems = [
-    { name: "About Me", icon: User, href: "#about" },
+    { name: "About", icon: User, href: "#about" },
     { name: "Skills", icon: Code, href: "#skills" },
     { name: "Projects", icon: FolderCode, href: "#projects" },
     { name: "Experience", icon: Layers, href: "#experience" },
     { name: "Contact", icon: Send, href: "#footer" }
   ];
 
+  // Handle scroll behavior
   const { scrollY } = useScroll();
-
   useMotionValueEvent(scrollY, "change", (latest) => {
-    // Hide/show navbar on scroll
-    const direction = latest > lastScrollY.current ? "down" : "up";
+    // Auto-hide navbar on scroll down
+    setIsVisible(latest <= lastScrollY.current || latest < 100 || isOpen);
     
-    if (direction === "down" && latest > 100) {
-      setIsVisible(false);
-    } else {
-      setIsVisible(true);
-    }
-
-    // Calculate scroll progress
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = (latest / docHeight) * 100;
+    // Update scroll progress indicator
+    const scrollPercent = (latest / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
     setScrollProgress(Math.min(scrollPercent, 100));
-
+    
+    // Update active section based on scroll position
+    navItems.forEach(item => {
+      const section = document.querySelector(item.href);
+      if (section && section.getBoundingClientRect().top < 200 && section.getBoundingClientRect().bottom > 200) {
+        setActiveSection(item.href.substring(1));
+      }
+    });
+    
     lastScrollY.current = latest;
   });
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
-  const containerVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: -50,
-      transition: { duration: 0.3 }
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        type: "spring", 
-        stiffness: 120,
-        damping: 15
-      }
-    }
-  };
-
-  const menuItemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: (custom) => ({
-      opacity: 1, 
-      x: 0,
-      transition: { 
-        delay: custom * 0.1,
-        type: "spring",
-        stiffness: 300
-      }
-    })
-  };
-  
-  const backToTopVariants = {
-    hover: {
-      scale: 1.1,
-      backgroundColor: "#525252", // neutral-600
-      transition: { type: "spring", stiffness: 400, damping: 10 }
-    },
-    tap: {
-      scale: 0.9
-    }
-  };
-
   return (
     <>
+      {/* Navbar */}
       <motion.nav 
-        variants={containerVariants}
-        initial="hidden"
-        animate={isVisible ? "visible" : "hidden"}
-        className="fixed top-0 left-0 right-0 z-50 w-full px-4 py-2 transition-all duration-300"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: isVisible ? 0 : -20, opacity: isVisible ? 1 : 0 }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        className="fixed top-0 left-0 right-0 z-50 w-full px-4 py-3"
       >
-        {/* Scroll Progress Indicator */}
-        <motion.div 
-          style={{ 
-            width: `${scrollProgress}%`,
-            scaleX: 1,
-            transformOrigin: 'left center'
-          }}
-          className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-neutral-600 via-neutral-500 to-neutral-400 z-50"
-        />
-
         <div className="max-w-4xl mx-auto">
-          <div className="bg-neutral-900/70 backdrop-blur-xl border border-neutral-800/70 shadow-2xl md:rounded-full">
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex justify-center items-center space-x-8 py-3 px-6">
-              <Link 
-                href="#" 
-                className="flex items-center space-x-2 text-neutral-200 hover:text-white group transition-colors mr-2"
-              >
-              </Link>
+          <div className="relative overflow-hidden bg-neutral-900/80 backdrop-blur-md border border-neutral-800/70 shadow-lg rounded-full">
+            {/* Progress bar */}
+            <motion.div 
+              style={{ width: `${scrollProgress}%` }}
+              className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-neutral-500 to-white"
+            />
+
+            {/* Desktop menu */}
+            <div className="hidden md:flex items-center justify-between px-6 py-2">
+              <Link href="#" className="text-white font-semibold tracking-wider">@karanupd12</Link>
               
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={index}
-                  variants={menuItemVariants}
-                  custom={index}
-                  initial="hidden"
-                  animate="visible"
-                >
+              <div className="flex space-x-6">
+                {navItems.map((item, index) => (
                   <Link 
-                    href={item.href} 
-                    className="flex items-center space-x-2 text-neutral-400 hover:text-white group transition-colors"
+                    key={index}
+                    href={item.href}
+                    className="relative group py-2"
                   >
-                    <item.icon 
-                      className="w-4 h-4 text-neutral-500 group-hover:text-neutral-200 transition-colors" 
-                    />
-                    <span className="text-sm font-medium">{item.name}</span>
+                    <div className="flex items-center space-x-2">
+                      <item.icon className={`w-4 h-4 ${activeSection === item.href.substring(1) ? 'text-white' : 'text-neutral-500 group-hover:text-neutral-300'}`} />
+                      <span className={`text-sm ${activeSection === item.href.substring(1) ? 'text-white' : 'text-neutral-400 group-hover:text-neutral-200'}`}>
+                        {item.name}
+                      </span>
+                    </div>
+                    
+                    {/* Active indicator */}
+                    {activeSection === item.href.substring(1) && (
+                      <motion.div 
+                        layoutId="activeIndicator"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white"
+                      />
+                    )}
                   </Link>
-                </motion.div>
-              ))}
+                ))}
+              </div>
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <div className="md:hidden flex justify-between items-center p-4">
-              <motion.button 
-                onClick={toggleMenu}
-                whileTap={{ scale: 0.9 }}
-                className="text-neutral-300 focus:outline-none"
+            {/* Mobile menu toggle */}
+            <div className="md:hidden flex justify-between items-center p-3">
+              <Link href="#hero" className="text-white font-semibold tracking-wide">PORTFOLIO</Link>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-2 rounded-full bg-neutral-800 text-white"
               >
-                {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </motion.button>
+                {isOpen ? <X size={18} /> : <Menu size={18} />}
+              </button>
             </div>
-
-            {/* Mobile Menu */}
-            <AnimatePresence>
-              {isOpen && (
-                <motion.div 
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="md:hidden"
-                >
-                  <div className="flex flex-col p-4 space-y-4">
-                    {navItems.map((item, index) => (
-                      <motion.div
-                        key={index}
-                        variants={menuItemVariants}
-                        custom={index}
-                        initial="hidden"
-                        animate="visible"
-                      >
-                        <Link 
-                          href={item.href} 
-                          onClick={toggleMenu}
-                          className="flex items-center space-x-3 text-neutral-300 hover:text-white group"
-                        >
-                          <item.icon 
-                            className="w-5 h-5 text-neutral-500 group-hover:text-neutral-200" 
-                          />
-                          <span>{item.name}</span>
-                        </Link>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
         </div>
       </motion.nav>
       
-      {/* Back to Top Button */}
-      <motion.button
-        onClick={scrollToTop}
-        whileHover="hover"
-        whileTap="tap"
-        variants={backToTopVariants}
-        className="fixed bottom-6 right-6 z-50 bg-neutral-800/80 hover:bg-neutral-700 text-white p-3 rounded-full shadow-lg backdrop-blur-sm border border-neutral-700/50"
-        aria-label="Back to top"
-      >
-        <ChevronUp className="w-5 h-5" />
-      </motion.button>
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed top-16 left-0 right-0 z-40 bg-neutral-900/95 backdrop-blur-md border-t  border-b border-neutral-800 md:hidden"
+          >
+            <div className="max-w-4xl mx-auto p-4">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center space-x-3 p-3 my-1 rounded ${
+                      activeSection === item.href.substring(1) ? 'bg-neutral-800 text-white' : 'text-neutral-300'
+                    }`}
+                  >
+                    <item.icon size={18} />
+                    <span>{item.name}</span>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+      {/* Back to top button */}
+      <AnimatePresence>
+        {scrollProgress > 20 && (
+          <motion.button
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            whileHover={{ scale: 1.1 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-6 right-6 z-30 p-2 rounded-full bg-neutral-800/90 border border-neutral-700/50 text-white shadow-lg"
+          >
+            <ChevronUp size={20} />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </>
   );
 };
