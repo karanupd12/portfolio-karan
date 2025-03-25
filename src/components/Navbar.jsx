@@ -19,7 +19,7 @@ const Navbar = () => {
     { name: "Contact", icon: Send, href: "#footer" }
   ];
 
-  // Handle scroll behavior
+  // Handle scroll
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (latest) => {
     // Auto-hide navbar on scroll down
@@ -29,7 +29,7 @@ const Navbar = () => {
     const scrollPercent = (latest / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
     setScrollProgress(Math.min(scrollPercent, 100));
     
-    // Update active section based on scroll position
+    // Update active section 
     navItems.forEach(item => {
       const section = document.querySelector(item.href);
       if (section && section.getBoundingClientRect().top < 200 && section.getBoundingClientRect().bottom > 200) {
@@ -108,7 +108,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed top-16 left-0 right-0 z-40 bg-neutral-900/95 backdrop-blur-md border-t  border-b border-neutral-800 md:hidden"
+            className="fixed top-16 left-5 right-5 z-40 bg-neutral-900 backdrop-blur-md border-t border-b rounded-xl border-neutral-800 md:hidden"
           >
             <div className="max-w-4xl mx-auto p-4">
               {navItems.map((item, index) => (

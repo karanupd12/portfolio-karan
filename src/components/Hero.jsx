@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Instagram, Twitter, Linkedin, Github, Mail, ArrowRight, Download } from 'lucide-react';
+import { Instagram, Twitter, Linkedin, Github, Mail, ArrowRight, Download, } from 'lucide-react';
+import { SiLeetcode } from 'react-icons/si';
 
 const Hero = () => {
   const designations = [
@@ -48,6 +49,12 @@ const Hero = () => {
       color: "text-neutral-300",
     },
     { 
+      name: "LeetCode",
+      Icon: SiLeetcode, 
+      href: "https://leetcode.com/u/karanupd12/", 
+      color: "text-orange-500",
+    },
+    { 
       name: "Email",
       Icon: Mail, 
       href: "mailto:karanupd12@gmail.com", 
@@ -56,7 +63,15 @@ const Hero = () => {
   ];
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ 
+        duration: 1, 
+        ease: "easeInOut",
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }}
       id="home"
       className="relative min-h-screen w-full bg-gradient-to-b from-neutral-800 to-neutral-950 flex items-center justify-center overflow-hidden"
     >
@@ -76,30 +91,45 @@ const Hero = () => {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -20, opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-lg sm:text-xl md:text-2xl font-light tracking-widest uppercase text-blue-400"
+                className="text-lg sm:text-xl md:text-2xl font-light tracking-widest uppercase text-neutral-300"
               >
                 {designations[currentDesignation]}
               </motion.h2>
             </AnimatePresence>
 
             {/* Massive Name */}
-            <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-8xl font-black leading-tight tracking-tight">
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-blue-400 to-blue-200">
+            <motion.h1
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-5xl sm:text-6xl md:text-6xl lg:text-8xl font-black leading-tight tracking-tight"
+            >
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-500 to-blue-200">
                 KARAN
               </span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-blue-400 to-blue-800">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
                 UPADHYAY
               </span>
-            </h1>
+            </motion.h1>
 
             {/* Tagline */}
-            <p className="text-base sm:text-lg md:text-xl font-light max-w-2xl text-neutral-300 mx-auto md:mx-0">
+            <motion.p
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-base sm:text-lg md:text-xl font-light max-w-2xl text-neutral-300 mx-auto md:mx-0"
+            >
             "From a centralized past to a decentralized vision, <br/>
             I craft bridges where innovation meets precision."
-            </p>
+            </motion.p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 pt-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 pt-4"
+            >
               <Link
                 href="#projects"
                 className="px-6 sm:px-8 py-2 sm:py-3 bg-blue-600 text-white text-sm sm:text-base font-semibold rounded-full hover:bg-blue-500 transition-all duration-300 flex items-center justify-center gap-3 group"
@@ -116,10 +146,15 @@ const Hero = () => {
                 Download CV
                 <Download className="ml-2 size-4 sm:size-5" />
               </Link>
-            </div>
+            </motion.div>
 
             {/* Social Links */}
-            <div className="flex gap-4 justify-center md:justify-start space-x-4 sm:space-x-6 pt-6">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              className="flex gap-4 justify-center md:justify-start space-x-4 sm:space-x-6 pt-8"
+            >
               {socialLinks.map(({ name, Icon, href, color }) => (
                 <Link
                   key={name}
@@ -127,21 +162,26 @@ const Hero = () => {
                   target="_blank"
                   className={`${color} hover:scale-125 transition-all duration-300`}
                 >
-                  <Icon className="size-5 sm:size-6" />
+                  <Icon className="size-6 sm:size-6" />
                 </Link>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Image - right */}
-          <div className="flex items-center justify-center md:justify-end">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="flex items-center justify-center md:justify-end"
+          >
             <div className="relative w-72 sm:w-96 md:w-[500px] aspect-square rounded-2xl overflow-hidden shadow-2xl">
               <Image src="/assets/karan2.jpg" alt="Karan Upadhyay" fill sizes="(max-width: 768px) 256px, (max-width: 1200px) 448px, 576px" priority quality={100} className="object-cover object-center hover:scale-105 transition-transform duration-300" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

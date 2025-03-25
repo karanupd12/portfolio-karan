@@ -7,6 +7,7 @@ import {
     FaEnvelope,
     FaCode,
   } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
   
   const footerDetails = {
     // Social media links
@@ -38,8 +39,14 @@ import {
       {
         icon: FaMedium,
         href: "https://medium.com/@karanupd12",
-        color: "text-red-500",
+        color: "text-violet-500",
         ariaLabel: "Medium Profile",
+      },
+      {
+        icon: SiLeetcode,
+        href: "https://leetcode.com/u/karanupd12/",
+        color: "text-orange-500",
+        arialabel: "LeetCode",
       },
       
     ],
