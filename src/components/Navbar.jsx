@@ -59,7 +59,7 @@ const Navbar = () => {
 
             {/* Desktop menu */}
             <div className="hidden md:flex items-center justify-between px-6 py-2">
-              <Link href="#" className="text-white font-semibold tracking-wider">@karanupd12</Link>
+              <Link href="#" className="text-white font-thin tracking-widest">@karanupd12</Link>
               
               <div className="flex space-x-6">
                 {navItems.map((item, index) => (
@@ -89,7 +89,7 @@ const Navbar = () => {
 
             {/* Mobile menu toggle */}
             <div className="md:hidden flex justify-between items-center p-3">
-              <Link href="#hero" className="text-white font-semibold tracking-wide">PORTFOLIO</Link>
+              <Link href="#hero" className="text-white font-thin tracking-wider">PORTFOLIO</Link>
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="p-2 rounded-full bg-neutral-800 text-white"

@@ -151,14 +151,14 @@ const Skills = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-950 backdrop-blur-sm relative overflow-hidden group"
+                className="rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-neutral-700 bg-gradient-to-br from-neutral-800 to-neutral-950 backdrop-blur-sm relative overflow-hidden group"
               >
                 {/* Subtle glow */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"></div>
                 
                 <div className="relative">
                   <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
-                    <div className="bg-gradient-to-br from-blue-500/20 to-indigo-500/20 p-2 rounded-lg shadow-inner">
+                    <div className="bg-gradient-to-br from-red-500/20 to-indigo-500/20 p-2 rounded-lg shadow-inner">
                       <FaCode className="text-xl sm:text-2xl text-blue-400" />
                     </div>
                     <h3 className="text-lg sm:text-xl font-semibold text-white">
@@ -219,7 +219,7 @@ const Skills = () => {
           <motion.div
             ref={ref}
             variants={itemVariants}
-            className="bg-gradient-to-br from-neutral-900 to-neutral-950 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-neutral-800 relative overflow-hidden"
+            className="bg-gradient-to-br from-neutral-800/50 to-neutral-9500/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-neutral-800 relative overflow-hidden"
           >
             {/* Background Blur Effect */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
@@ -253,7 +253,7 @@ const Skills = () => {
                       <img 
                         src={achievement.image} 
                         alt={achievement.title}
-                        className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                        className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-900 ease-out"
                       />
                       
                       {/* Animated stats */}

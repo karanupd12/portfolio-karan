@@ -3,8 +3,10 @@ import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return(
-    <><AnimatedBackground />
-    <Component {...pageProps} /></>
+    <>
+    <AnimatedBackground />
+    <Component {...pageProps} />
+    </>
   );
 }
 

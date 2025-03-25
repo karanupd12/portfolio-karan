@@ -14,19 +14,19 @@ import {
       {
         icon: FaLinkedin,
         href: "https://linkedin.com/in/karanupd12",
-        color: "text-blue-200",
+        color: "text-blue-400",
         ariaLabel: "LinkedIn Profile",
       },
       {
         icon: FaInstagram,
         href: "https://instagram.com/krn_0twelve",
-        color: "text-blue-200",
+        color: "text-pink-500",
         ariaLabel: "Instagram Profile",
       },
       {
         icon: FaTwitter,
         href: "https://twitter.com/karanupd012",
-        color: "text-blue-200",
+        color: "text-blue-400",
         ariaLabel: "Twitter Profile",
       },
       {
@@ -38,7 +38,7 @@ import {
       {
         icon: FaMedium,
         href: "https://medium.com/@karanupd12",
-        color: "text-blue-200",
+        color: "text-red-500",
         ariaLabel: "Medium Profile",
       },
       

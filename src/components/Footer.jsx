@@ -5,6 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiFramer } from "react-icons/si";
 import footerDetails from "../data/footerDetails";
 
+
 const Footer = () => {
   const { socialLinks, navigationLinks, contactInfo, collaboration, copyright } = footerDetails;
 
@@ -16,7 +17,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="footer" className="bg-neutral-900 text-white py-10">
+    <footer id="footer" className="bg-gradient-to-b from-neutral-900/20 via-neutral-900 to-neutral-800/60 text-white py-10">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start">
           {/* Main Footer Content */}

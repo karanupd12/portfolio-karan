@@ -17,31 +17,4 @@ export const projectDetails = [
         technologies: ["Nextjs", "TailwindCSS", "Hardhat", "Chai", "Etherjs", "Metamask", "Polygon Amoy Network", "Remix IDE"],
         github: "https://github.com/yourusername/finance-tracker"
     },
-    {
-        name: "Real-Time Chat Application",
-        genre: "Web Application",
-        description: "A responsive chat application that facilitates real-time communication between users. Implemented with Socket.IO for bidirectional event-based communication and a sleek React interface.",
-        image: "/assets/school.png",
-        live: "https://realtime-chat.com",
-        technologies: ["React", "Socket.IO", "Node.js", "Express.js"],
-        github: "https://github.com/yourusername/chat-app"
-    },
-    {
-        name: "Real-Time Chat Application",
-        genre: "Web Application",
-        description: "A responsive chat application that facilitates real-time communication between users. Implemented with Socket.IO for bidirectional event-based communication and a sleek React interface.",
-        image: "/assets/school.png",
-        live: "https://realtime-chat.com",
-        technologies: ["React", "Socket.IO", "Node.js", "Express.js"],
-        github: "https://github.com/yourusername/chat-app"
-    },
-    {
-        name: "Real-Time Chat Application",
-        genre: "Web Application",
-        description: "A responsive chat application that facilitates real-time communication between users. Implemented with Socket.IO for bidirectional event-based communication and a sleek React interface.",
-        image: "/assets/school.png",
-        live: "https://realtime-chat.com",
-        technologies: ["React", "Socket.IO", "Node.js", "Express.js"],
-        github: "https://github.com/yourusername/chat-app"
-    },
 ];

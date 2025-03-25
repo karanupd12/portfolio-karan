@@ -27,38 +27,38 @@ const Hero = () => {
       name: "Instagram",
       Icon: Instagram, 
       href: "https://instagram.com/krn_0twelve", 
-      color: "text-white hover:text-pink-500",
+      color: "text-pink-500",
     },
     { 
       name: "Twitter",
       Icon: Twitter, 
       href: "https://twitter.com/karanupd012", 
-      color: "text-white hover:text-blue-500",
+      color: "text-blue-500",
     },
     { 
       name: "LinkedIn",
       Icon: Linkedin, 
       href: "https://linkedin.com/in/karanupd12", 
-      color: "text-white hover:text-blue-600",
+      color: "text-blue-600",
     },
     { 
       name: "GitHub",
       Icon: Github, 
       href: "https://github.com/karanupd12", 
-      color: "text-white hover:text-neutral-300",
+      color: "text-neutral-300",
     },
     { 
       name: "Email",
       Icon: Mail, 
       href: "mailto:karanupd12@gmail.com", 
-      color: "text-white hover:text-red-500",
+      color: "text-red-500",
     }
   ];
 
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full bg-neutral-950 flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen w-full bg-gradient-to-b from-neutral-800 to-neutral-950 flex items-center justify-center overflow-hidden"
     >
       {/* Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b"></div>
@@ -94,8 +94,8 @@ const Hero = () => {
 
             {/* Tagline */}
             <p className="text-base sm:text-lg md:text-xl font-light max-w-2xl text-neutral-300 mx-auto md:mx-0">
-              Transforming innovative ideas into cutting-edge digital solutions.
-              Bridging the gap between imagination and technology.
+            "From a centralized past to a decentralized vision, <br/>
+            I craft bridges where innovation meets precision."
             </p>
 
             {/* Action Buttons */}
@@ -119,7 +119,7 @@ const Hero = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex justify-center md:justify-start space-x-4 sm:space-x-6 pt-6">
+            <div className="flex gap-4 justify-center md:justify-start space-x-4 sm:space-x-6 pt-6">
               {socialLinks.map(({ name, Icon, href, color }) => (
                 <Link
                   key={name}
@@ -133,18 +133,10 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Image Column */}
-          <div className="flex items-center justify-center md:block">
-            <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl aspect-square rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/assets/karan2.jpg"
-                alt="Karan Upadhyay"
-                fill
-                sizes="(max-width: 768px) 256px, (max-width: 1200px) 448px, 576px"
-                priority
-                quality={100}
-                className="object-cover object-center hover:scale-105 transition-transform duration-300"
-              />
+          {/* Image - right */}
+          <div className="flex items-center justify-center md:justify-end">
+            <div className="relative w-72 sm:w-96 md:w-[500px] aspect-square rounded-2xl overflow-hidden shadow-2xl">
+              <Image src="/assets/karan2.jpg" alt="Karan Upadhyay" fill sizes="(max-width: 768px) 256px, (max-width: 1200px) 448px, 576px" priority quality={100} className="object-cover object-center hover:scale-105 transition-transform duration-300" />
             </div>
           </div>
         </div>
