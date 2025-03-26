@@ -54,12 +54,6 @@ const Hero = () => {
       href: "https://leetcode.com/u/karanupd12/", 
       color: "text-orange-500",
     },
-    { 
-      name: "Email",
-      Icon: Mail, 
-      href: "mailto:karanupd12@gmail.com", 
-      color: "text-red-500",
-    }
   ];
 
   return (
@@ -73,16 +67,17 @@ const Hero = () => {
         staggerChildren: 0.2
       }}
       id="home"
-      className="relative min-h-screen w-full bg-gradient-to-b from-neutral-800 to-neutral-950 flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
     >
       {/* Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b"></div>
 
       {/* Content Container */}
       <div className="relative z-20 w-full px-4 sm:px-6 md:px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Text Content */}
-          <div className="text-white space-y-4 sm:space-y-6 text-center md:text-left">
+          <div className="text-white md:space-y-3 text-center md:text-left">
+
             {/* Animated Designation */}
             <AnimatePresence mode="wait">
               <motion.h2
@@ -91,25 +86,26 @@ const Hero = () => {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -20, opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-lg sm:text-xl md:text-2xl font-light tracking-widest uppercase text-neutral-300"
+                className="mb-4 text-xl md:text-2xl font-light tracking-widest uppercase text-blue-400"
               >
                 {designations[currentDesignation]}
               </motion.h2>
             </AnimatePresence>
+
+            <span className="mb-3 text-xl md:text-2xl font-light text-neutral-300">Hi There, I'm</span>
 
             {/* Massive Name */}
             <motion.h1
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl sm:text-6xl md:text-6xl lg:text-8xl font-black leading-tight tracking-tight"
+              className="text-5xl sm:text-6xl md:text-6xl lg:text-8xl font-black leading-tight tracking-tight relative"
             >
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-500 to-blue-200">
-                KARAN
+
+              <span className="mb-2 block text-transparent bg-clip-text bg-white">
+                KARAN UPADHYAY
               </span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-800">
-                UPADHYAY
-              </span>
+
             </motion.h1>
 
             {/* Tagline */}
@@ -117,7 +113,7 @@ const Hero = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-base sm:text-lg md:text-xl font-light max-w-2xl text-neutral-300 mx-auto md:mx-0"
+              className="mb-3 text-base sm:text-lg md:text-xl font-light max-w-2xl text-neutral-300 mx-auto md:mx-0"
             >
             "From a centralized past to a decentralized vision, <br/>
             I craft bridges where innovation meets precision."
@@ -128,7 +124,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 pt-4"
+              className=" mb-3 flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6 pt-4"
             >
               <Link
                 href="#projects"

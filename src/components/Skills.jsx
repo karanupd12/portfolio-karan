@@ -123,7 +123,7 @@ const Skills = () => {
             <span className="text-neutral-200">Expertise</span>
           </motion.h2>
           <motion.p
-            className="text-neutral-400 max-w-xl mx-auto text-base md:text-lg font-light"
+            className="text-neutral-300 max-w-xl mx-auto text-base md:text-lg font-light"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false, amount: 0.8 }}
@@ -151,7 +151,7 @@ const Skills = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-neutral-700 bg-gradient-to-br from-neutral-800 to-neutral-950 backdrop-blur-sm relative overflow-hidden group"
+                className="rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-neutral-700 bg-gradient-to-br from-neutral-700/70 to-neutral-800/9 backdrop-blur-sm relative overflow-hidden group"
               >
                 {/* Subtle glow */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"></div>
@@ -184,7 +184,7 @@ const Skills = () => {
                         onMouseLeave={() => setHoveredSkill(null)}
                       >
                         {/* skill icons  */}
-                        <div className="bg-neutral-800/80 p-2 rounded-lg flex items-center justify-center shadow-lg border border-neutral-700/50 hover:border-blue-500/50 transition-all duration-300 backdrop-blur-sm">
+                        <div className="bg-neutral-300 p-2 rounded-lg flex items-center justify-center shadow-lg border border-neutral-700/50 hover:border-blue-500/50 transition-all duration-300 backdrop-blur-sm">
                           <img
                             src={skill.imageSrc}
                             alt={skill.name}
@@ -219,7 +219,7 @@ const Skills = () => {
           <motion.div
             ref={ref}
             variants={itemVariants}
-            className="bg-gradient-to-br from-neutral-800/50 to-neutral-9500/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-neutral-800 relative overflow-hidden"
+            className=" bg-gradient-to-br from-neutral-700/80 to-neutral-900 backdrop-blur-sm rounded-lg sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-neutral-800 relative overflow-hidden"
           >
             {/* Background Blur Effect */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
@@ -245,11 +245,11 @@ const Skills = () => {
                       y: -8,
                       transition: { type: "spring", stiffness: 300 },
                     }}
-                    className="bg-neutral-800/50 backdrop-blur-sm rounded-lg sm:rounded-xl overflow-hidden border border-neutral-700/50 hover:border-blue-500/30 transition-all duration-500 group relative"
+                    className="bg-neutral-900 backdrop-blur-sm rounded-lg sm:rounded-xl overflow-hidden border border-neutral-900 hover:border-blue-500/30 transition-all duration-500 group relative"
                   >
                     {/* Image container */}
                     <div className="h-32 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/30 to-neutral-900/95 z-10"></div>
+                      <div className="absolute inset-0 z-10"></div>
                       <img 
                         src={achievement.image} 
                         alt={achievement.title}
@@ -278,7 +278,7 @@ const Skills = () => {
                               />
                             )}
                           </motion.div>
-                          <p className="text-xs text-neutral-400 font-medium mt-1 text-center">
+                          <p className="text-xs text-neutral-300 font-medium mt-1 text-center">
                             {achievement.metric || "Projects"}
                           </p>
                         </div>
@@ -294,7 +294,7 @@ const Skills = () => {
                     
                     {/* Card content */}
                     <div className="p-4 sm:p-5">
-                      <h4 className="text-base sm:text-lg font-semibold mb-3 text-white">
+                      <h4 className="text-base sm:text-lg font-semibold mb-3 text-blue-400">
                         {achievement.title}
                       </h4>
                       
@@ -308,7 +308,7 @@ const Skills = () => {
                             viewport={{ once: true }}
                             className="flex items-start"
                           >
-                            <span className="text-blue-400 mr-2 flex-shrink-0 mt-0.5">•</span>
+                            <span className="text-white-400 mr-2 flex-shrink-0 mt-0.5">•</span>
                             <span>{detail}</span>
                           </motion.li>
                         ))}

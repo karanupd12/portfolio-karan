@@ -17,7 +17,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="footer" className="bg-gradient-to-b from-neutral-900/20 via-neutral-900 to-neutral-800/60 text-white py-10">
+    <footer id="footer" className="bg-gradient-to-br from-neutral-950 to-neutral-800 text-white py-10 mt-16">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start">
           {/* Main Footer Content */}
@@ -53,7 +53,7 @@ const Footer = () => {
                 <Link
                   key={index}
                   href={href}
-                  className="text-neutral-400 text-sm font-medium hover:text-blue-400 
+                  className="text-neutral-300 text-sm font-medium hover:text-blue-400 
                     transition-colors duration-300"
                 >
                   {label}
@@ -63,7 +63,7 @@ const Footer = () => {
 
             {/* Contact Brief */}
             <motion.p
-              className="text-neutral-400 text-sm mb-6"
+              className="text-neutral-300 text-sm mb-6"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -89,7 +89,7 @@ const Footer = () => {
               <collaboration.icon className="mr-2" />
               <h3 className="text-m font-medium">{collaboration.title}</h3>
             </div>
-            <p className="text-neutral-400 text-sm leading-relaxed mb-2">
+            <p className="text-neutral-300 text-sm leading-relaxed mb-2">
               {collaboration.description}
             </p>
             <Link
@@ -105,7 +105,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <motion.div
-          className="mt-8 pt-4 border-t border-neutral-800 text-center"
+          className="mt-8 pt-4 border-t border-neutral-600 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -118,7 +118,7 @@ const Footer = () => {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <span className="text-xs text-neutral-400">Built with:</span>
+              <span className="text-xs text-neutral-400">Built with </span>
               {techIcons.map(({ Icon, label, color }, index) => (
                 <motion.div
                   key={index}

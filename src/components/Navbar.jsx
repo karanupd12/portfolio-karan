@@ -50,7 +50,7 @@ const Navbar = () => {
         className="fixed top-0 left-0 right-0 z-50 w-full px-4 py-3"
       >
         <div className="max-w-4xl mx-auto">
-          <div className="relative overflow-hidden bg-neutral-900/80 backdrop-blur-md border border-neutral-800/70 shadow-lg rounded-full">
+          <div className="relative overflow-hidden bg-neutral-800 backdrop-blur-md border border-neutral-700 shadow-lg rounded-full">
             {/* Progress bar */}
             <motion.div 
               style={{ width: `${scrollProgress}%` }}
@@ -59,7 +59,7 @@ const Navbar = () => {
 
             {/* Desktop menu */}
             <div className="hidden md:flex items-center justify-between px-6 py-2">
-              <Link href="#" className="text-white font-thin tracking-widest">@karanupd12</Link>
+              <Link href="#" className="text-white-500 font-thin tracking-wider">@karanupd12</Link>
               
               <div className="flex space-x-6">
                 {navItems.map((item, index) => (
@@ -108,7 +108,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed top-16 left-5 right-5 z-40 bg-neutral-900 backdrop-blur-md border-t border-b rounded-xl border-neutral-800 md:hidden"
+            className="fixed top-16 left-5 right-5 z-40 bg-neutral-700 backdrop-blur-md border-t border-b rounded-xl border-neutral-800 md:hidden"
           >
             <div className="max-w-4xl mx-auto p-4">
               {navItems.map((item, index) => (

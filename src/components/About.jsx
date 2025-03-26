@@ -58,7 +58,7 @@ const About = () => {
           {/* About Text Section */}
           <motion.div
             variants={itemVariants}
-            className="space-y-6 rounded-2xl p-8 shadow-xl "
+            className="space-y-6 rounded-2xl p-8 shadow-xl border border-neutral-950 bg-neutral-800/80"
           >
             <div className="flex items-center space-x-4 mb-4">
               <FaCode className="text-3xl text-blue-400" />
@@ -113,7 +113,7 @@ const About = () => {
           {/* Academics Section */}
           <motion.div
             variants={itemVariants}
-            className="space-y-4 rounded-2xl p-8 shadow-xl border border-neutral-800"
+            className="space-y-4 rounded-2xl p-8 shadow-xl border bg-neutral-800/80 border-neutral-900"
           >
             <div className="flex items-center space-x-4 mb-4">
               <FaGraduationCap className="text-4xl text-blue-400" />
@@ -127,7 +127,7 @@ const About = () => {
                 key={index}
                 className="bg-neutral-900 rounded-xl overflow-hidden border border-neutral-800"
               >
-                <div className="flex items-center p-4 space-x-4 bg-neutral-800">
+                <div className="flex items-center p-4 space-x-4 border-b border-neutral-600 bg-neutral-700/80">
                   <img
                     src={edu.image}
                     alt={edu.institution}
@@ -141,14 +141,14 @@ const About = () => {
                 </div>
 
                 {edu.degrees.map((degree, idx) => (
-                  <div key={idx} className="p-4 space-y-2 border-b border-neutral-800">
+                  <div key={idx} className="p-4 space-y-2 border-b border-neutral-600">
                     <h3 className="text-base font-semibold text-blue-400">
                       {degree.name}
                     </h3>
-                    <div className="text-sm text-neutral-300 space-y-1">
+                    <div className="text-sm text-neutral-400 space-y-1">
                       <p>{degree.duration}</p>
                       <p>{degree.spec}</p>
-                      <p className="font-semibold text-blue-300">
+                      <p className="font-semibold">
                         Score - {degree.score}
                       </p>
                     </div>
@@ -160,7 +160,7 @@ const About = () => {
                   <button
                     onClick={() => toggleCoursework(index)}
                     className="w-full flex items-center justify-between p-4 
-                      text-sm text-neutral-200 hover:bg-neutral-700/50 
+                      text-sm text-neutral-300 hover:bg-neutral-700/50 
                       transition-colors duration-300 group"
                   >
                     <span className="font-medium">View Coursework</span>
@@ -191,13 +191,13 @@ const About = () => {
                             ease: "easeInOut",
                           },
                         }}
-                        className="bg-neutral-800 p-4"
+                        className="bg-neutral-900 p-4"
                       >
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                           {edu.coursework.map((course, idx) => (
                             <div 
                               key={idx} 
-                              className="flex items-center space-x-2 p-2 rounded bg-neutral-700/20 hover:bg-neutral-700/40 transition-colors duration-200"
+                              className="flex items-center space-x-2 p-2 rounded bg-neutral- hover:bg-neutral-600 transition-colors duration-200"
                             >
                               <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
                               <span className="text-neutral-300 text-sm">{course.name}</span>

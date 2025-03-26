@@ -1,53 +1,46 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { 
-  FaBriefcase, 
-  FaCalendarAlt, 
-  FaCertificate,
-  FaTools,
-  FaChevronRight,
-  FaQuoteLeft
-} from "react-icons/fa";
+import { FaCertificate, FaChevronRight } from "react-icons/fa";
 import Link from "next/link";
 import { experienceDetails } from "../data/experienceDetails";
 
 const Experience = () => {
   const sectionRef = useRef(null);
-  
+
   // Parallax scroll effect
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
-  
+
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  
+
   return (
-    <section 
-      id="experience" 
+    <section
+      id="experience"
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center text-white py-16 sm:py-20 px-4 md:px-8 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center text-white py-16 sm:py-20 px-4 md:px-8 relative overflow-hidden w-full"
     >
-      
       {/* Subtle Grid Background */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{ y: backgroundY }}
       >
-        <div className="w-full h-full bg-neutal-950"/>
+        <div className="w-full h-full bg-neutral-950" />
       </motion.div>
-      
-      <div className="max-w-7xl w-full relative z-10">
-        {/* Header with animated highlight */}
-        <motion.div 
+
+      <div className="w-full relative z-10 px-4 sm:px-8 md:px-16 lg:px-24">
+
+        {/* Section Header */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-16"
         >
-          <motion.h2 
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 tracking-tight"
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-3 tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.8 }}
@@ -55,103 +48,102 @@ const Experience = () => {
           >
             <span className="inline-block relative">
               <span className="bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-600 bg-clip-text text-transparent">
-                Professional
+                Work
               </span>
-              <motion.span 
+              <motion.span
                 className="absolute -bottom-2 left-0 w-full h-[3px] bg-gradient-to-r from-blue-500 to-indigo-500"
                 initial={{ width: 0 }}
-                whileInView={{ width: '100%' }}
+                whileInView={{ width: "100%" }}
                 viewport={{ once: false, amount: 0.8 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               />
-            </span>
-            {" "}
-            <span className="text-neutral-200">Journey</span>
+            </span>{" "}
+            <span className="text-neutral-200">Experience</span>
           </motion.h2>
-          <motion.p 
-            className="text-neutral-400 max-w-xl mx-auto text-sm sm:text-base md:text-lg font-light px-2"
+          <motion.p
+            className="text-neutral-300 max-w-xl mx-auto text-base md:text-lg font-light"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false, amount: 0.8 }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            Building tomorrow's solutions across the digital landscape
+            Professional experience, project roles and positions I've held over time
           </motion.p>
         </motion.div>
-        
-        {/* Timeline View */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="relative max-w-4xl mx-auto"
-        >
-          {/* Vertical Timeline Line - Responsive positioning */}
-          <div className="absolute top-0 bottom-0 left-4 sm:left-12 md:left-20 lg:left-1/2 w-px bg-gradient-to-b from-transparent via-blue-300 to-transparent"></div>
-          
+
+        {/* Timeline Container */}
+        <div className="relative w-full">
+          {/* Vertical Timeline Line */}
+          <div className="absolute top-0 bottom-0 left-6 sm:left-12 w-[2px] bg-gradient-to-b from-transparent via-blue-300/30 to-transparent"></div>
+
           {experienceDetails.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative mb-10 sm:mb-16 last:mb-0"
+              transition={{
+                duration: 0.6,
+                delay: index * 0.2,
+                type: "spring",
+                stiffness: 100,
+              }}
+              className="relative mb-12 sm:mb-16 last:mb-0 pl-10 sm:pl-16"
             >
-              
-              {/* Year Label - Responsive positioning and sizing */}
-              <div className="absolute top-0 left-0 sm:left-[calc(0%)] md:left-[calc(0%)] lg:left-[calc(50%-120px)] 
-                  text-blue-400 font-bold text-xs sm:text-sm border border-blue-500/20 rounded-full
-                  bg-neutral-900/80 backdrop-blur-sm py-1 px-2 sm:px-3 z-10">
-                {exp.duration.split(' - ')[0]}
-              </div>
-              
-              {/* Content Card */}
-              <div className={`ml-10 sm:ml-20 md:ml-32 lg:ml-0
-                ${index % 2 === 0 ? 'lg:mr-[calc(50%+40px)]' : 'lg:ml-[calc(50%+40px)]'}
-                bg-neutral-900 border border-neutral-800 rounded-lg p-4 sm:p-5
-                hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/10 mt-6 sm:mt-0`}
-              >
-                <h3 className="text-lg sm:text-xl font-semibold text-white">{exp.role}</h3>
-                <div className="flex flex-wrap items-center gap-2 mb-2 sm:mb-3">
-                  <span className="text-blue-400 text-sm sm:text-base">{exp.company}</span>
+              {/* Timeline Dot */}
+              <div className="absolute left-4 sm:left-6 top-0 w-4 h-4 bg-blue-500 rounded-full border-2 border-neutral-800 transform -translate-x-1/2 translate-y-1" />
+
+              {/* Experience Card */}
+              <div className="relative p-6 bg-neutral-800 backdrop-blur-sm border border-neutral-700/50 rounded-xl shadow-xl shadow-blue-900/10 max-w-4xl w-full">
+                {/* Year Badge */}
+                <div className="absolute -left-16 sm:-left-24 top-0 text-blue-400 font-bold text-xs sm:text-sm bg-neutral-900/80 backdrop-blur-sm border border-blue-500/20 rounded-full py-1 px-2 sm:px-3 z-10">
+                  {exp.duration.split(" - ")[0]}
                 </div>
-                
-                <p className="text-neutral-300 text-xs sm:text-sm mb-3 sm:mb-4">
+
+                {/* Experience Details */}
+                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">
+                  {exp.role}
+                </h3>
+                <div className="text-blue-400 text-sm sm:text-base mb-3">
+                  {exp.company}
+                </div>
+                <p className="text-neutral-300 text-sm sm:text-base mb-4">
                   {exp.description}
                 </p>
-                
-                {/* Technologies In Timeline View */}
-                <div className="flex flex-wrap gap-1 sm:gap-1.5 mb-2 sm:mb-3">
-                  {exp.technologies.slice(0, 3).map((tech, idx) => (
-                    <span key={idx} className="px-1.5 sm:px-2 py-0.5 bg-neutral-800 text-neutral-300 text-[10px] sm:text-xs rounded-full">
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {exp.technologies.slice(0, 4).map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 bg-neutral-900 text-neutral-200 rounded-full text-xs hover:bg-blue-900/30 transition-colors"
+                    >
                       {tech}
                     </span>
                   ))}
-                  {exp.technologies.length > 3 && (
-                    <span className="px-1.5 sm:px-2 py-0.5 bg-neutral-800 text-neutral-400 text-[10px] sm:text-xs rounded-full">
-                      +{exp.technologies.length - 3} more
-                    </span>
-                  )}
                 </div>
-                
-                {/* Certificate */}
+
+                {/* Certificate Link */}
                 {exp.certificate && (
-                  <Link 
-                    href={exp.certificate} 
+                  <Link
+                    href={exp.certificate}
                     target="_blank"
-                    className="inline-flex items-center space-x-1 text-indigo-400 hover:text-indigo-300 transition-colors duration-300 text-[10px] sm:text-xs group/link"
+                    className="inline-flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 transition-colors duration-300 text-xs group/link"
                   >
-                    <FaCertificate size={10} className="text-amber-400" />
-                    <span className="group-hover/link:underline">Certificate</span>
-                    <FaChevronRight size={8} className="group-hover/link:translate-x-0.5 transition-transform duration-300" />
+                    <FaCertificate size={12} className="text-amber-400" />
+                    <span className="group-hover/link:underline">
+                      Checkout
+                    </span>
+                    <FaChevronRight
+                      size={10}
+                      className="group-hover/link:translate-x-0.5 transition-transform"
+                    />
                   </Link>
                 )}
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

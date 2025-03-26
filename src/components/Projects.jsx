@@ -49,7 +49,7 @@ const Projects = () => {
       viewport={{ once: false, amount: 0.3 }}
       variants={fadeIn}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`${isMobile ? 'w-full' : 'flex-1'} bg-neutral-900 rounded-xl border border-neutral-800 shadow-lg hover:shadow-xl hover:border-blue-900 transition-all duration-300`}
+      className={`${isMobile ? 'w-full' : 'flex-1'} bg-white/10 rounded-xl border border-neutral-800 shadow-lg hover:shadow-xl hover:border-blue-900 transition-all duration-300`}
     >
       {/* Project Image */}
       <div className={`overflow-hidden rounded-t-xl relative ${isMobile ? 'h-48' : 'h-56'}`}>
@@ -75,7 +75,7 @@ const Projects = () => {
           {project.technologies.map((tech, techIndex) => (
             <span
               key={techIndex}
-              className="bg-neutral-800 text-blue-300 text-xs px-2.5 py-1 rounded-md font-medium"
+              className="bg-neutral-900 text-white text-xs px-2.5 py-1 rounded-md font-thin"
             >
               {tech}
             </span>
