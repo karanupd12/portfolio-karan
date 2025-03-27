@@ -20,6 +20,7 @@ const Footer = () => {
     <footer id="footer" className="bg-gradient-to-br from-neutral-950 to-neutral-800 text-white py-10 mt-16">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start">
+
           {/* Main Footer Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -27,6 +28,7 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center md:items-start md:w-2/3"
           >
+
             {/* Socials*/}
             <div className="flex justify-center space-x-6 mb-6">
               {socialLinks.map(
@@ -47,7 +49,7 @@ const Footer = () => {
               )}
             </div>
 
-            {/* Simple Navigation */}
+            {/* Important nav links */}
             <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-2 mb-8">
               {navigationLinks.map(({ label, href }, index) => (
                 <Link
@@ -61,7 +63,7 @@ const Footer = () => {
               ))}
             </div>
 
-            {/* Contact Brief */}
+            {/* Contact */}
             <motion.p
               className="text-neutral-300 text-sm mb-6"
               initial={{ opacity: 0 }}
@@ -78,7 +80,7 @@ const Footer = () => {
             </motion.p>
           </motion.div>
 
-          {/* Collaboration Section */}
+          {/* Collaboration with me*/}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

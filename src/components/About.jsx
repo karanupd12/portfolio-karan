@@ -14,7 +14,6 @@ import { educationDetails, aboutMe } from "../data/about";
 const About = () => {
   const [selectedCoursework, setSelectedCoursework] = useState(null);
 
-  // smoother animations
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -63,7 +62,7 @@ const About = () => {
             <div className="flex items-center space-x-4 mb-4">
               <FaCode className="text-3xl text-blue-400" />
               <h2 className="text-2xl md:text-3xl font-semibold text-white">
-                Professional Overview
+                Who am I?
               </h2>
             </div>
 
@@ -82,7 +81,7 @@ const About = () => {
 
             </div>
 
-            {/* Social Links */}
+            {/* medium and linkedin socials */}
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
               <Link
                 href="https://medium.com/@karanupd12"
@@ -155,7 +154,7 @@ const About = () => {
                   </div>
                 ))}
 
-                {/* Improved Coursework Display */}
+                {/* Coursework Display */}
                 <div>
                   <button
                     onClick={() => toggleCoursework(index)}

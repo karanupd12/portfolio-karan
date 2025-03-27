@@ -219,7 +219,7 @@ const Skills = () => {
           <motion.div
             ref={ref}
             variants={itemVariants}
-            className=" bg-gradient-to-br from-neutral-700/80 to-neutral-900 backdrop-blur-sm rounded-lg sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-neutral-800 relative overflow-hidden"
+            className=" bg-gradient-to-br from-neutral-700/80 to-neutral-800 backdrop-blur-sm rounded-lg sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-neutral-800 relative overflow-hidden"
           >
             {/* Background Blur Effect */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
@@ -231,7 +231,7 @@ const Skills = () => {
                   <FaTrophy className="text-xl sm:text-2xl text-blue-400" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold text-white">
-                  Achievements & Expertise
+                  Achievements & Contributions
                 </h3>
               </div>
 
@@ -245,7 +245,7 @@ const Skills = () => {
                       y: -8,
                       transition: { type: "spring", stiffness: 300 },
                     }}
-                    className="bg-neutral-900 backdrop-blur-sm rounded-lg sm:rounded-xl overflow-hidden border border-neutral-900 hover:border-blue-500/30 transition-all duration-500 group relative"
+                    className="bg-gradient-to-br from-neutral-900/70 via-neutral-800 to-neutral-900 backdrop-blur-sm rounded-lg sm:rounded-xl overflow-hidden border border-neutral-900 hover:border-blue-500/30 transition-all duration-500 group relative"
                   >
                     {/* Image container */}
                     <div className="h-32 relative overflow-hidden">
@@ -256,7 +256,7 @@ const Skills = () => {
                         className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-900 ease-out"
                       />
                       
-                      {/* Animated stats */}
+                      {/* stats */}
                       <div className="absolute top-0 right-0 p-3 z-20">
                         <div className="bg-neutral-900/80 backdrop-blur-sm rounded-lg p-2 border border-neutral-700/50 shadow-lg">
                           <motion.div
@@ -284,7 +284,7 @@ const Skills = () => {
                         </div>
                       </div>
                       
-                      {/* Icon Overlay */}
+                      {/* Icon */}
                       <div className="absolute bottom-0 left-0 p-3 z-20">
                         <div className="bg-neutral-900/80 backdrop-blur-sm p-2 rounded-lg border border-neutral-700/50 shadow-lg">
                           {getAchievementIcon(achievement.title)}
@@ -292,7 +292,7 @@ const Skills = () => {
                       </div>
                     </div>
                     
-                    {/* Card content */}
+                    {/* Card*/}
                     <div className="p-4 sm:p-5">
                       <h4 className="text-base sm:text-lg font-semibold mb-3 text-blue-400">
                         {achievement.title}

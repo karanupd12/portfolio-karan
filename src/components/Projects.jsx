@@ -11,13 +11,12 @@ const Projects = () => {
   const myGithub = "https://github.com/karanupd12";
   const totalPages = Math.ceil(projectDetails.length / 3);
 
-  // Simple fade-in animation
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
   };
 
-  // Handle navigation
+  // Handle nav
   const handleNavigation = (direction) => {
     if (scrollRef.current) {
       const newIndex = direction === "left" 
@@ -32,7 +31,6 @@ const Projects = () => {
     }
   };
 
-  // Go to specific page
   const goToPage = (index) => {
     setActiveIndex(index);
     scrollRef.current?.scrollTo({
@@ -41,7 +39,7 @@ const Projects = () => {
     });
   };
 
-  // Project card component
+  // Project card 
   const ProjectCard = ({ project, index, isMobile }) => (
     <motion.div
       initial="hidden"
@@ -51,19 +49,19 @@ const Projects = () => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className={`${isMobile ? 'w-full' : 'flex-1'} bg-white/10 rounded-xl border border-neutral-800 shadow-lg hover:shadow-xl hover:border-blue-900 transition-all duration-300`}
     >
-      {/* Project Image */}
+      {/* Image */}
       <div className={`overflow-hidden rounded-t-xl relative ${isMobile ? 'h-48' : 'h-56'}`}>
         <img
           src={project.image}
           alt={project.name}
           className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
         />
-        <span className="absolute top-3 right-3 bg-blue-900 px-3 py-1 rounded-full text-xs font-medium">
+        <span className="absolute top-3 right-3 text-black bg-white px-3 py-1 rounded-full text-xs font-medium">
           {project.genre}
         </span>
       </div>
 
-      {/* Project Details */}
+      {/* Details */}
       <div className={`${isMobile ? 'p-5' : 'p-6'}`}>
         <h3 className="text-2xl font-bold mb-3 text-white">{project.name}</h3>
         <p className={`text-neutral-300 leading-relaxed mb-5 ${!isMobile && 'min-h-[80px]'}`}>
@@ -115,9 +113,12 @@ const Projects = () => {
   );
 
   return (
-    <section id="projects" className="min-h-screen text-white py-16 px-4 md:px-8">
+    <section
+      id="projects"
+      className="min-h-screen text-white py-16 px-4 md:px-8"
+    >
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+        {/* Section Title*/}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -151,25 +152,27 @@ const Projects = () => {
         {/* Mobile Projects Layout */}
         <div className="block md:hidden space-y-8">
           {projectDetails.map((project, index) => (
-            <ProjectCard 
-              key={`mobile-${index}`} 
-              project={project} 
-              index={index} 
-              isMobile={true} 
+            <ProjectCard
+              key={`mobile-${index}`}
+              project={project}
+              index={index}
+              isMobile={true}
             />
           ))}
         </div>
 
         {/* Desktop Projects Layout */}
         <div className="relative hidden md:block">
-          {/* Navigation Controls */}
+          {/* Nav Controls */}
           {totalPages > 1 && (
             <>
               <button
                 onClick={() => handleNavigation("left")}
                 disabled={activeIndex === 0}
                 className={`absolute left-0 top-1/2 -translate-y-1/2 -ml-5 z-10 bg-neutral-800 rounded-full p-2 text-white shadow-lg transition-all duration-200 ${
-                  activeIndex === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-600"
+                  activeIndex === 0
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-blue-600"
                 }`}
                 aria-label="Previous projects"
               >
@@ -180,7 +183,9 @@ const Projects = () => {
                 onClick={() => handleNavigation("right")}
                 disabled={activeIndex === totalPages - 1}
                 className={`absolute right-0 top-1/2 -translate-y-1/2 -mr-5 z-10 bg-neutral-800 rounded-full p-2 text-white shadow-lg transition-all duration-200 ${
-                  activeIndex === totalPages - 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-600"
+                  activeIndex === totalPages - 1
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-blue-600"
                 }`}
                 aria-label="Next projects"
               >
@@ -195,7 +200,6 @@ const Projects = () => {
             className="flex overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar"
             style={{ scrollSnapType: "x mandatory" }}
           >
-            {/* Group projects by pages of 3 */}
             {Array.from({ length: totalPages }).map((_, pageIndex) => (
               <div
                 key={pageIndex}
@@ -203,20 +207,20 @@ const Projects = () => {
                 style={{ scrollSnapAlign: "start" }}
               >
                 {projectDetails
-                  .slice(pageIndex * 2, pageIndex * 3 + 2)
+                  .slice(pageIndex * 2, (pageIndex + 1) * 2)
                   .map((project, index) => (
-                    <ProjectCard 
-                      key={pageIndex * 2 + index} 
-                      project={project} 
-                      index={index} 
-                      isMobile={false} 
+                    <ProjectCard
+                      key={pageIndex * 2 + index}
+                      project={project}
+                      index={index}
+                      isMobile={false}
                     />
                   ))}
               </div>
             ))}
           </div>
 
-          {/* Page indicator dots */}
+          {/* Page dots */}
           {totalPages > 1 && (
             <div className="flex justify-center space-x-2 mt-4">
               {Array.from({ length: totalPages }).map((_, index) => (
@@ -224,7 +228,9 @@ const Projects = () => {
                   key={index}
                   onClick={() => goToPage(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    activeIndex === index ? "w-6 bg-blue-500" : "w-2 bg-neutral-700"
+                    activeIndex === index
+                      ? "w-6 bg-blue-500"
+                      : "w-2 bg-neutral-700"
                   }`}
                   aria-label={`Go to page ${index + 1}`}
                 />

@@ -7,7 +7,6 @@ import { experienceDetails } from "../data/experienceDetails";
 const Experience = () => {
   const sectionRef = useRef(null);
 
-  // Parallax scroll effect
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -31,7 +30,7 @@ const Experience = () => {
 
       <div className="w-full relative z-10 px-4 sm:px-8 md:px-16 lg:px-24">
 
-        {/* Section Header */}
+        {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -90,17 +89,16 @@ const Experience = () => {
               }}
               className="relative mb-12 sm:mb-16 last:mb-0 pl-10 sm:pl-16"
             >
-              {/* Timeline Dot */}
-              <div className="absolute left-4 sm:left-6 top-0 w-4 h-4 bg-blue-500 rounded-full border-2 border-neutral-800 transform -translate-x-1/2 translate-y-1" />
 
               {/* Experience Card */}
               <div className="relative p-6 bg-neutral-800 backdrop-blur-sm border border-neutral-700/50 rounded-xl shadow-xl shadow-blue-900/10 max-w-4xl w-full">
-                {/* Year Badge */}
+
+                {/* Year */}
                 <div className="absolute -left-16 sm:-left-24 top-0 text-blue-400 font-bold text-xs sm:text-sm bg-neutral-900/80 backdrop-blur-sm border border-blue-500/20 rounded-full py-1 px-2 sm:px-3 z-10">
                   {exp.duration.split(" - ")[0]}
                 </div>
 
-                {/* Experience Details */}
+                {/*  Details */}
                 <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">
                   {exp.role}
                 </h3>
@@ -111,7 +109,7 @@ const Experience = () => {
                   {exp.description}
                 </p>
 
-                {/* Technologies */}
+                {/* Work Domain - techstack */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {exp.technologies.slice(0, 4).map((tech, idx) => (
                     <span
@@ -123,7 +121,7 @@ const Experience = () => {
                   ))}
                 </div>
 
-                {/* Certificate Link */}
+                {/* Relevant link */}
                 {exp.certificate && (
                   <Link
                     href={exp.certificate}

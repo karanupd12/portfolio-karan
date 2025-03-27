@@ -8,6 +8,7 @@ export const projectDetails = [
         technologies: ["Nextjs", "CSS3", "Solidity", "Hardhat", "Ethersjs", "Metamask", "Polygon Amoy Network", "Remix IDE"],
         github: "https://github.com/karanupd12/BlockTalk"
     },
+
     {
         name: "HoistHub",
         genre: "Crowdfunding DApp",
@@ -15,6 +16,26 @@ export const projectDetails = [
         image: "/assets/hoisthub.png",
         live: "https://finance-tracker.com",
         technologies: ["Nextjs", "TailwindCSS", "Hardhat", "Chai", "Etherjs", "Metamask", "Polygon Amoy Network", "Remix IDE"],
-        github: "https://github.com/yourusername/finance-tracker"
+        github: "https://github.com/karanupd12/HoistHub_Contract"
+    },
+
+    {
+        name: "Karan Upadhyay",
+        genre: "Portfolio",
+        description: "My personal portfolio that adheres to the core principles of Material Design, providing a polished and responsive user interface. It serves as a comprehensive showcase of my professional information, highlights my technical expertise, and features a collection of my projects and professional experiences, reflecting my passion for innovation and commitment to continuous learning.",
+        image: "/assets/portfolio.png",
+        live: "https://github.com/karanupd12/portfolio-karan",
+        technologies: ["Nextjs", "TailwindCSS", "Framer-motion", "Figma"],
+        github: "https://github.com/karanupd12/portfolio-karan",
+    },
+
+    {
+        name: "Delhi Cast",
+        genre: "Weather App",
+        description: "A real-time dynamic weather application for Delhi, developed using Flutter. The app displays live weather updates, including temperature, humidity, and forecasts, tailored specifically for the city of Delhi.",
+        image: "/assets/delhicast.png",
+        live: "https://github.com/karanupd12/DelhiCast",
+        technologies: ["Dart", "Flutter", "OpenWeatherMap API", "Android Studio","Figma"],
+        github: "https://github.com/karanupd12/",
     },
 ];

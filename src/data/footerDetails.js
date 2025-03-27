@@ -70,7 +70,7 @@ import { SiLeetcode } from "react-icons/si";
     collaboration: {
       icon: FaCode,
       title: "Open For Collaboration",
-      description: "BlockTalk is currently open for developers. Join me in improving this DApp project with Next.js.",
+      description: "BlockTalk is open for contributions. Developers with ideas and expertise in Next.js and Solidity are welcome to collaborate in enhancing and advancing this DApp project.",
       linkText: "View Project",
       linkHref: "#projects",
     },

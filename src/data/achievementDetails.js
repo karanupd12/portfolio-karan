@@ -6,8 +6,8 @@ const achievementDetails = [
         suffix: "+",
         description: [
             "Winner - Dev Challenge 2024",
-            "Finalist - Fetch AI Hackathon 2024 IIT PATNA",
-            "Participated in 20+ hackathons across Web3 & AI domains"
+            "Finalist - Fetch's AI Agent Hackathon IIT PATNA",
+            "Listed among top Innovaters at Retracted 2024"
         ],
         image: "/assets/hackathon.jpg"
     },
@@ -43,7 +43,8 @@ const achievementDetails = [
         description: [
             "Cumulative GPA: 8.16 | SGPA: 8.96",
             "Proficient in Core & Advanced Java, Spring Boot & Microservices",
-            "Specialized in Data Structures, Algorithm Design and Analysis, Operating Systems and Database Management."
+            "Specialized in Data Structures and Algorithm analysis",
+            "Certified Ethereum Developer - Infosys",
         ],
         image: "/assets/ggsipu.jpeg"
     }

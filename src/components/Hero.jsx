@@ -78,7 +78,7 @@ const Hero = () => {
           {/* Text Content */}
           <div className="text-white md:space-y-3 text-center md:text-left">
 
-            {/* Animated Designation */}
+            {/* Designation */}
             <AnimatePresence mode="wait">
               <motion.h2
                 key={currentDesignation}
@@ -94,7 +94,7 @@ const Hero = () => {
 
             <span className="mb-3 text-xl md:text-2xl font-light text-neutral-300">Hi There, I'm</span>
 
-            {/* Massive Name */}
+            {/* Name */}
             <motion.h1
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -108,15 +108,14 @@ const Hero = () => {
 
             </motion.h1>
 
-            {/* Tagline */}
+            {/* Quote */}
             <motion.p
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="mb-3 text-base sm:text-lg md:text-xl font-light max-w-2xl text-neutral-300 mx-auto md:mx-0"
             >
-            "From a centralized past to a decentralized vision, <br/>
-            I craft bridges where innovation meets precision."
+            "From a centralized past to a decentralized future, I build pathways where innovation and precision converge"
             </motion.p>
 
             {/* Action Buttons */}
@@ -144,7 +143,7 @@ const Hero = () => {
               </Link>
             </motion.div>
 
-            {/* Social Links */}
+            {/* Socials */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -164,7 +163,7 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Image - right */}
+          {/* Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}

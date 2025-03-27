@@ -10,7 +10,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("about");
   const lastScrollY = useRef(0);
 
-  // Navigation items configuration
+  // Nav items
   const navItems = [
     { name: "About", icon: User, href: "#about" },
     { name: "Skills", icon: Code, href: "#skills" },
@@ -22,7 +22,7 @@ const Navbar = () => {
   // Handle scroll
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (latest) => {
-    // Auto-hide navbar on scroll down
+    
     setIsVisible(latest <= lastScrollY.current || latest < 100 || isOpen);
     
     // Update scroll progress indicator

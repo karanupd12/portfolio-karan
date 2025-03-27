@@ -3,7 +3,7 @@ export const educationDetails = [
         institution: "USICT, GGSIPU, Delhi",
         image: "/assets/college.png",
         degrees: [
-            { name: "B.Tech in Information Technology", duration: "2022 - Present", score: "8.92 SGPA", spec:"Specialization - Software Engineering"},
+            { name: "B.Tech in Information Technology", duration: "2022 - Present", score: "8.16 CGPA | 8.91 SGPA", spec:"Specialization - Software Engineering"},
         ],
         coursework: [
             { name: "Java Programming"},
@@ -20,7 +20,7 @@ export const educationDetails = [
         institution: "RSV Roop Nagar No. 4, Delhi",
         image: "/assets/school.png",
         degrees: [
-            { name: "Senior Secondary School", duration: "2019 - 2021", score: "90 %", spec: "Stream - Science(PCM)" },
+            { name: "Senior Secondary School", duration: "2019 - 2021", score: "90 %", spec: "Stream - Science(PCM) + CS" },
         ],
         coursework: [
             { name:"Physics, Chemistry & Maths"},
@@ -32,11 +32,11 @@ export const educationDetails = [
 
 export const aboutMe = [
     {
-        me1: "As a pre-final year IT student, I am driven by a passion for innovation and problem-solving. My approach to technology goes beyond conventional development—I strive to create solutions that are not only efficient but also forward-thinking, adaptable, and impactful.",
+        me1: "As a pre-final year IT student at USICT, GGSIPU, I am passionate about building scalable and impactful solutions. With expertise in software engineering, blockchain, and full-stack development, I focus on creating decentralized applications that seamlessly integrate emerging technologies into real-world use cases.",
 
-        me2: "With a deep interest in software engineering, blockchain, and AI-driven systems, I constantly explore ways to bridge the gap between emerging technologies and real-world applications. Whether it’s enhancing system intelligence through NLP and AI, ensuring transparency with decentralized frameworks, or refining problem-solving through data structures and algorithms, I believe in leveraging technology as a force for progress.",
+        me2: "My journey has been shaped by hands-on experience in numerous hackathons, where I've had the opportunity to collaborate with diverse teams, winning some and losing others, but always learning valuable lessons from each. Additionally, I've worked on several projects focused Blockchain and AI-driven systems, which have helped me refine my skills in developing robust, scalable applications. I also hold certifications in Java, Spring Microservices, and Ethereum Development (Infosys), which have further strengthened my core technical expertise and deepened my understanding of modern development practices.",
 
-        me3: "My experiences in hackathons, research, and competitive coding have shaped my ability to think critically and execute ideas effectively under pressure. Winning a Web3 hackathon and participating in several others has strengthened my ability to collaborate, adapt, and innovate in fast-paced environments.",
+        me3: "I envision a future where technology shifts from centralized control to decentralized empowerment. By leveraging blockchain, AI, and distributed systems, I aim to contribute to a more secure, transparent, and efficient digital ecosystem, pushing the boundaries of innovation to shape a better future.",
 
     }
 ];

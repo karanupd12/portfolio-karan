@@ -1,26 +1,18 @@
 export const experienceDetails = [
     {
+        company: "CSRBOX",
+        role: "Web Developer",
+        description: "Led frontend development for WeCare, an SDG-driven resource donation platform facilitating donations of food, clothing, books, and volunteering services. Integrated automated user communication and maintained website responsiveness.",
+        certificate: "https://drive.google.com/file/d/1LNUu_fkAZWwkkAly1ecLnqXf0JB8jSa3/view",
+        technologies: ["Web Development", "SDG driven"],
+        duration: "July 2024 - Aug 2024"
+    },
+    {
         company: "Edunet Foundation",
         role: "Research Intern",
-        description: " Researched NFT verification techniques using generative AI and computer vision, achieving 95% accuracy in detecting fraudulent digital assets. Contributed to the design of smart contracts for ERC-20 and ERC-721 tokens, enhancing security and compliance for digital asset transactions.",
-        Checkout: "https://example.com/certificate1",
-        technologies: ["Solidity", "Computer Vision", "Blockchain"],
-        duration: "Jan 2023- Dec 2023"
-    },
-    {
-        company: "CSRBOX",
-        role: "Frontend Developer",
-        description: "Built scalable web applications with MERN stack and integrated blockchain features.",
-        certificate: "https://example.com/certificate2",
-        technologies: ["React", "Node.js", "MongoDB", "IPFS"],
-        duration: "Mar 2022- Nov 2022"
-    },
-    {
-        company: "Open Source Community",
-        role: "Contributing Developer",
-        description: "Contributed to multiple open-source blockchain projects, optimizing smart contract security.",
-        certificate: "https://example.com/certificate3",
-        technologies: ["Rust", "Substrate", "GraphQL"],
-        duration: "Jun 2021- Present"
+        description: " Researched NFT verification techniques using computer vision, achieving 95% accuracy in detecting fraudulent digital assets. Contributed to the design of smart contracts for ERC-20 and ERC-721 tokens, enhancing security and compliance for digital asset transactions.",
+        certificate: "https://github.com/karanupd12/ERC-20-AmberToken",
+        technologies: ["Solidity", "Computer Vision", "Ethereum-Blockchain", "ERC-20"],
+        duration: "June 2024 - july 2024"
     },
 ];
