@@ -24,7 +24,7 @@ const skillsDetails = [
       { name: "Flutter", imageSrc: "/icons/flutter.png" },
 
       // Backend
-      { name: "Spring Boot", imageSrc: "/icons/springBoot.png" },
+      { name: "Spring Boot", imageSrc: "/icons/springboot.png" },
       { name: "Maven", imageSrc: "/icons/maven.png" },
       { name: "Hibernate", imageSrc: "/icons/hibernate.png" },
 
