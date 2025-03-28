@@ -87,11 +87,10 @@ const Skills = () => {
   };
 
   return (
-    <section
+    <div
       id="skills"
       className="min-h-screen text-white py-12 sm:py-16 px-4 sm:px-6 md:px-8 relative overflow-hidden"
     >
-      
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Title */}
         <motion.div
@@ -215,7 +214,7 @@ const Skills = () => {
             ))}
           </motion.div>
 
-          {/* Achievement Section  */}
+          {/* Achievement Section */}
           <motion.div
             ref={ref}
             variants={itemVariants}
@@ -270,10 +269,10 @@ const Skills = () => {
                                 start={0}
                                 end={achievement.count}
                                 duration={2.5}
-                                separator=","
+                                separator="," 
                                 decimals={achievement.count % 1 !== 0 ? 1 : 0}
                                 decimal="."
-                                suffix="+"
+                                suffix="+" 
                                 enableScrollSpy
                               />
                             )}
@@ -323,7 +322,7 @@ const Skills = () => {
           </motion.div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 };
 

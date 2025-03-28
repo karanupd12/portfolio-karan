@@ -13,20 +13,20 @@ const Projects = () => {
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
-  // Handle nav
   const handleNavigation = (direction) => {
     if (scrollRef.current) {
-      const newIndex = direction === "left" 
-        ? Math.max(0, activeIndex - 1)
-        : Math.min(totalPages - 1, activeIndex + 1);
-      
+      const newIndex =
+        direction === "left"
+          ? Math.max(0, activeIndex - 1)
+          : Math.min(totalPages - 1, activeIndex + 1);
+
       setActiveIndex(newIndex);
       scrollRef.current.scrollTo({
         left: newIndex * scrollRef.current.clientWidth,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -39,7 +39,6 @@ const Projects = () => {
     });
   };
 
-  // Project card 
   const ProjectCard = ({ project, index, isMobile }) => (
     <motion.div
       initial="hidden"
@@ -47,10 +46,15 @@ const Projects = () => {
       viewport={{ once: false, amount: 0.3 }}
       variants={fadeIn}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`${isMobile ? 'w-full' : 'flex-1'} bg-white/10 rounded-xl border border-neutral-800 shadow-lg hover:shadow-xl hover:border-blue-900 transition-all duration-300`}
+      className={`${
+        isMobile ? "w-full" : "flex-1"
+      } bg-white/10 rounded-xl border border-neutral-800 shadow-lg hover:shadow-xl hover:border-blue-900 transition-all duration-300`}
     >
-      {/* Image */}
-      <div className={`overflow-hidden rounded-t-xl relative ${isMobile ? 'h-48' : 'h-56'}`}>
+      <div
+        className={`overflow-hidden rounded-t-xl relative ${
+          isMobile ? "h-48" : "h-56"
+        }`}
+      >
         <img
           src={project.image}
           alt={project.name}
@@ -61,14 +65,16 @@ const Projects = () => {
         </span>
       </div>
 
-      {/* Details */}
-      <div className={`${isMobile ? 'p-5' : 'p-6'}`}>
+      <div className={`${isMobile ? "p-5" : "p-6"}`}>
         <h3 className="text-2xl font-bold mb-3 text-white">{project.name}</h3>
-        <p className={`text-neutral-300 leading-relaxed mb-5 ${!isMobile && 'min-h-[80px]'}`}>
+        <p
+          className={`text-neutral-300 leading-relaxed mb-5 ${
+            !isMobile && "min-h-[80px]"
+          }`}
+        >
           {project.description}
         </p>
 
-        {/* Tech Stack */}
         <div className="flex flex-wrap gap-2 mb-6">
           {project.technologies.map((tech, techIndex) => (
             <span
@@ -80,7 +86,6 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Action Buttons */}
         <div className="flex justify-between items-center">
           <div>
             <a
@@ -89,7 +94,9 @@ const Projects = () => {
               rel="noopener noreferrer"
               className="group inline-flex items-center hover:text-blue-400 transition-all duration-200"
             >
-              <span className="font-medium text-sm">{isMobile ? 'Try out → ' : 'Checkout : '}</span>
+              <span className="font-medium text-sm">
+                {isMobile ? "Try out → " : "Checkout : "}
+              </span>
               <span className="ml-2 text-xs bg-blue-900 rounded-full px-2 py-1 inline-flex items-center">
                 <span className="relative mr-1 flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -113,12 +120,8 @@ const Projects = () => {
   );
 
   return (
-    <section
-      id="projects"
-      className="min-h-screen text-white py-16 px-4 md:px-8"
-    >
+    <div id="projects" className="min-h-screen text-white py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -154,11 +157,11 @@ const Projects = () => {
             viewport={{ once: false, amount: 0.8 }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            Building innovative and scalable solutions across Web2 and Web3 ecosystems
+            Building innovative and scalable solutions across Web2 and Web3
+            ecosystems
           </motion.p>
         </motion.div>
 
-        {/* Mobile Projects Layout */}
         <div className="block md:hidden space-y-8">
           {projectDetails.map((project, index) => (
             <ProjectCard
@@ -170,9 +173,7 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Desktop Projects Layout */}
         <div className="relative hidden md:block">
-          {/* Nav Controls */}
           {totalPages > 1 && (
             <>
               <button
@@ -203,7 +204,6 @@ const Projects = () => {
             </>
           )}
 
-          {/* Scrollable Container */}
           <div
             ref={scrollRef}
             className="flex overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar"
@@ -229,7 +229,6 @@ const Projects = () => {
             ))}
           </div>
 
-          {/* Page dots */}
           {totalPages > 1 && (
             <div className="flex justify-center space-x-2 mt-4">
               {Array.from({ length: totalPages }).map((_, index) => (
@@ -249,7 +248,6 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Hide scrollbar style */}
       <style jsx global>{`
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
@@ -259,7 +257,7 @@ const Projects = () => {
           scrollbar-width: none;
         }
       `}</style>
-    </section>
+    </div>
   );
 };
 

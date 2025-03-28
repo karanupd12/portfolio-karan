@@ -15,7 +15,7 @@ const Experience = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   return (
-    <section
+    <div
       id="experience"
       ref={sectionRef}
       className="min-h-screen flex items-center justify-center text-white py-16 sm:py-20 px-4 md:px-8 relative overflow-hidden w-full"
@@ -29,7 +29,6 @@ const Experience = () => {
       </motion.div>
 
       <div className="w-full relative z-10 px-4 sm:px-8 md:px-16 lg:px-24">
-
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -66,7 +65,8 @@ const Experience = () => {
             viewport={{ once: false, amount: 0.8 }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            Professional experience, project roles and positions I've held over time
+            Professional experience, project roles and positions I've held over
+            time
           </motion.p>
         </motion.div>
 
@@ -89,16 +89,14 @@ const Experience = () => {
               }}
               className="relative mb-12 sm:mb-16 last:mb-0 pl-10 sm:pl-16"
             >
-
               {/* Experience Card */}
               <div className="relative p-6 bg-neutral-800 backdrop-blur-sm border border-neutral-700/50 rounded-xl shadow-xl shadow-blue-900/10 max-w-4xl w-full">
-
                 {/* Year */}
                 <div className="absolute -left-16 sm:-left-24 top-0 text-blue-400 font-bold text-xs sm:text-sm bg-neutral-900/80 backdrop-blur-sm border border-blue-500/20 rounded-full py-1 px-2 sm:px-3 z-10">
                   {exp.duration.split(" - ")[0]}
                 </div>
 
-                {/*  Details */}
+                {/* Details */}
                 <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">
                   {exp.role}
                 </h3>
@@ -109,7 +107,7 @@ const Experience = () => {
                   {exp.description}
                 </p>
 
-                {/* Work Domain - techstack */}
+                {/* Work Domain - Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {exp.technologies.slice(0, 4).map((tech, idx) => (
                     <span
@@ -121,7 +119,7 @@ const Experience = () => {
                   ))}
                 </div>
 
-                {/* Relevant link */}
+                {/* Relevant Link */}
                 {exp.certificate && (
                   <Link
                     href={exp.certificate}
@@ -129,13 +127,8 @@ const Experience = () => {
                     className="inline-flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 transition-colors duration-300 text-xs group/link"
                   >
                     <FaCertificate size={12} className="text-amber-400" />
-                    <span className="group-hover/link:underline">
-                      Checkout
-                    </span>
-                    <FaChevronRight
-                      size={10}
-                      className="group-hover/link:translate-x-0.5 transition-transform"
-                    />
+                    <span className="group-hover/link:underline">Checkout</span>
+                    <FaChevronRight className="group-hover/link:translate-x-0.5 transition-transform" />
                   </Link>
                 )}
               </div>
@@ -143,7 +136,7 @@ const Experience = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
