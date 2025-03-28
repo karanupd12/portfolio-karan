@@ -138,7 +138,7 @@ const Hero = () => {
                 download
                 className="px-6 sm:px-8 py-2 sm:py-3 border-2 border-white/30 text-white text-sm sm:text-base font-semibold rounded-full hover:bg-white/10 transition-all duration-300 flex items-center justify-center"
               >
-                Download CV
+                Resume
                 <Download className="ml-2 size-4 sm:size-5" />
               </Link>
             </motion.div>

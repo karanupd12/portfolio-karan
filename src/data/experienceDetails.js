@@ -1,7 +1,7 @@
 export const experienceDetails = [
     {
         company: "CSRBOX",
-        role: "Web Developer",
+        role: "Web Developer Intern",
         description: "Led frontend development for WeCare, an SDG-driven resource donation platform facilitating donations of food, clothing, books, and volunteering services. Integrated automated user communication and maintained website responsiveness.",
         certificate: "https://drive.google.com/file/d/1LNUu_fkAZWwkkAly1ecLnqXf0JB8jSa3/view",
         technologies: ["Web Development", "SDG driven"],

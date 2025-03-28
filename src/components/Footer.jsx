@@ -70,7 +70,7 @@ const Footer = () => {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Let's connect —{" "}
+              Get in touch  —{" "}
               <a
                 href={contactInfo.emailLink}
                 className="text-blue-400 hover:text-blue-300"
