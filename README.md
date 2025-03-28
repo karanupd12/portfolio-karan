@@ -1,41 +1,32 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio Website
+
+Personal portfolio built with **Next.js**, **Tailwind CSS**, and **Framer Motion**. The site follows **Material Design** principles, offering a clean, modern, and responsive design. It showcases my technical skills, projects, and professional experiences.
 
 ## Getting Started
 
-First, run the development server:
+To help you create your own portfolio, here are some helpful resources and guides:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 1. **Next.js Documentation**
+   - [Next.js Docs](https://nextjs.org/docs) - Official documentation to get started with building websites using Next.js.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. **Tailwind CSS Documentation**
+   - [Tailwind CSS Docs](https://tailwindcss.com/docs) - Learn how to use Tailwind CSS to design beautiful UIs with minimal effort.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 3. **Framer Motion Documentation**
+   - [Framer Motion Docs](https://www.framer.com/motion/) - A guide to adding animations and transitions to your React components using Framer Motion.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. **Material Design Guidelines**
+   - [Material Design Guidelines](https://material.io/design) - Learn the principles and components of Material Design to create polished user interfaces.
 
-## Learn More
+### 5. **Create Your Portfolio with Next.js and Tailwind**
+   - [Build a Portfolio with Next.js and Tailwind CSS](https://www.freecodecamp.org/news/build-a-portfolio-with-tailwind-css-and-next-js/) - A detailed tutorial on how to build a personal portfolio website using Next.js and Tailwind CSS.
 
-To learn more about Next.js, take a look at the following resources:
+### 6. **Deploying Your Portfolio**
+   - [Vercel Documentation](https://vercel.com/docs) - Guide to deploying your Next.js app on Vercel.
+   - [Netlify Documentation](https://www.netlify.com/docs/) - An alternative platform to deploy your static websites.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 7. **GitHub Pages for Portfolio**
+   - [GitHub Pages Guide](https://pages.github.com/) - Learn how to host your portfolio using GitHub Pages.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# portfolio-karan
-Responsive personal portfolio.  
->>>>>>> 734919f (Initial commit)
+Feel free to explore my work and get in touch. Contributions, suggestions, and pull requests are always welcome!
