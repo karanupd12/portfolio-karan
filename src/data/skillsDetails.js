@@ -12,7 +12,7 @@ const skillsDetails = [
     ],
   },
   {
-    category: "Frontend & Backend Technologies",
+    category: "Frontend & Backend",
     skills: [
       // Frontend
       { name: "HTML5", imageSrc: "/icons/html5.png" },

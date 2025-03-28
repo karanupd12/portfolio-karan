@@ -93,7 +93,7 @@ const Skills = () => {
     >
       
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
+        {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -184,7 +184,7 @@ const Skills = () => {
                         onMouseLeave={() => setHoveredSkill(null)}
                       >
                         {/* skill icons  */}
-                        <div className="bg-neutral-300 p-2 rounded-lg flex items-center justify-center shadow-lg border border-neutral-700/50 hover:border-blue-500/50 transition-all duration-300 backdrop-blur-sm">
+                        <div className="bg-white p-2 rounded-lg flex items-center justify-center shadow-lg border border-neutral-700/50 hover:border-blue-500/50 transition-all duration-300 backdrop-blur-sm">
                           <img
                             src={skill.imageSrc}
                             alt={skill.name}

@@ -1,6 +1,6 @@
 const achievementDetails = [
     {
-        title: "Hackathon Success",
+        title: "Hackathons",
         metric: "Hackathons",
         count: 20,
         suffix: "+",
@@ -36,9 +36,9 @@ const achievementDetails = [
         image: "/assets/leetcode.png"
     },
     {
-        title: "Academic Excellence",
+        title: "Academics",
         metric: "GPA",
-        count: 8.16,
+        count: 8.1,
         suffix: "",
         description: [
             "Cumulative GPA: 8.16 | SGPA: 8.96",

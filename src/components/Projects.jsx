@@ -118,7 +118,7 @@ const Projects = () => {
       className="min-h-screen text-white py-16 px-4 md:px-8"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Section Title*/}
+        {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -147,6 +147,15 @@ const Projects = () => {
             </span>{" "}
             <span className="text-neutral-200">That Delivers</span>
           </motion.h2>
+          <motion.p
+            className="text-neutral-300 max-w-xl mx-auto text-base md:text-lg font-light"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false, amount: 0.8 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+          >
+            Building innovative and scalable solutions across Web2 and Web3 ecosystems
+          </motion.p>
         </motion.div>
 
         {/* Mobile Projects Layout */}

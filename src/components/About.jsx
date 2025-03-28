@@ -96,7 +96,7 @@ const About = () => {
               </Link>
 
               <Link
-                href="https://instagram.com/krn_0twelve"
+                href="https://www.linkedin.com/in/karanupd12/"
                 target="_blank"
                 className="group flex items-center justify-center space-x-3 px-6 py-3 
                   border-2 border-neutral-700 text-neutral-300 rounded-full 
