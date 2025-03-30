@@ -26,7 +26,7 @@ const About = () => {
       className="text-white px-4 md:px-8 md:py-16"
     >
       {/* About Section */}
-      <div id="about" className="grid md:grid-cols-2 gap-12 items-start">
+      <div id="about" className=" min-h-screen grid md:grid-cols-2 gap-12 items-start">
         {/* About Text */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}

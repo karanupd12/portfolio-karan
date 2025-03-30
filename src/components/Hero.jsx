@@ -92,7 +92,7 @@ const Hero = () => {
               </motion.h2>
             </AnimatePresence>
 
-            <span className="mb-3 text-xl md:text-2xl font-light text-neutral-300">Hi There, I'm</span>
+            <span className=" hidden mb-3 text-xl md:text-2xl font-light text-neutral-300">Hi There, I'm</span>
 
             {/* Name */}
             <motion.h1
