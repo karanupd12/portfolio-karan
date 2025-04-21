@@ -5,9 +5,9 @@ const achievementDetails = [
         count: 20,
         suffix: "+",
         description: [
-            "Winner - Dev Challenge 2024",
-            "Finalist - Fetch's AI Agent Hackathon IIT PATNA",
-            "Listed among top Innovaters at Retracted 2024"
+            "Dev Challenge 2024 WINNER",
+            "Finalist: Fetch's AI Agent Hackathon IIT PATNA",
+            "Listed among top 100 Innovaters at REDACTED Hackathon2024"
         ],
         image: "/assets/hackathon.jpg"
     },
@@ -29,7 +29,7 @@ const achievementDetails = [
         count: 750,
         suffix: "+",
         description: [
-            "Knight at LeetCode (Max Rating - 1868, among top 5%)",
+            "Knight @LeetCode (Max Rating - 1868, among top 5%)",
             "Solved over 800 problems across multiple coding platforms",
             "Ranked among top 4% of Java leetcoders globally"
         ],
