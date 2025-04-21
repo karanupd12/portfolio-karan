@@ -65,7 +65,7 @@ const skillsDetails = [
 
       // DevOps
       { name: "Docker", imageSrc: "/icons/docker.png" },
-      { name: "Kubernetes", imageSrc: "/icons/kubernetes.png" },
+      //{ name: "Kubernetes", imageSrc: "/icons/kubernetes.png" },
     ],
   },
 ];

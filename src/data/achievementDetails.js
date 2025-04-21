@@ -29,8 +29,8 @@ const achievementDetails = [
         count: 750,
         suffix: "+",
         description: [
-            "Peak LeetCode rating of 1741 (among top 10%)",
-            "Solved over 750 problems across multiple coding platforms",
+            "Knight at LeetCode (Max Rating - 1868, among top 5%)",
+            "Solved over 800 problems across multiple coding platforms",
             "Ranked among top 4% of Java leetcoders globally"
         ],
         image: "/assets/leetcode.png"
@@ -41,7 +41,7 @@ const achievementDetails = [
         count: 8.1,
         suffix: "",
         description: [
-            "Cumulative GPA: 8.16 | SGPA: 8.96",
+            "Cumulative GPA: 8.13 | SGPA: 8.96",
             "Proficient in Core & Advanced Java, Spring Boot & Microservices",
             "Specialized in Data Structures and Algorithm analysis",
             "Certified Ethereum Developer - Infosys",

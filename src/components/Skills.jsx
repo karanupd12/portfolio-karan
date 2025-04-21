@@ -297,19 +297,9 @@ const Skills = () => {
                         {achievement.title}
                       </h4>
                       
-                      <ul className="space-y-2 text-xs sm:text-sm text-neutral-300">
+                      <ul className="space-y-2 text-xs sm:text-sm text-neutral-300 list-disc pl-5">
                         {achievement.description.map((detail, i) => (
-                          <motion.li
-                            key={i}
-                            initial={{ opacity: 0, x: -10 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3 + i * 0.1 }}
-                            viewport={{ once: true }}
-                            className="flex items-start"
-                          >
-                            <span className="text-white-400 mr-2 flex-shrink-0 mt-0.5">•</span>
-                            <span>{detail}</span>
-                          </motion.li>
+                          <li key={i}>{detail}</li>
                         ))}
                       </ul>
                     </div>

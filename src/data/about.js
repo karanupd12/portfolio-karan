@@ -3,7 +3,7 @@ export const educationDetails = [
         institution: "USICT, GGSIPU, Delhi",
         image: "/assets/college.png",
         degrees: [
-            { name: "B.Tech in Information Technology", duration: "2022 - Present", score: "8.16 CGPA | 8.91 SGPA", spec:"Specialization - Software Engineering"},
+            { name: "B.Tech in Information Technology", duration: "2022 - Present", score: "8.13 CGPA | 8.91 SGPA", spec:"Specialization - Software Engineering"},
         ],
         coursework: [
             { name: "Java Programming"},
