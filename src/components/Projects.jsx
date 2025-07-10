@@ -58,7 +58,7 @@ const Projects = () => {
         <img
           src={project.image}
           alt={project.name}
-          className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-contain sm:object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
         />
         <span className="absolute top-3 right-3 text-black bg-white px-3 py-1 rounded-full text-xs font-medium">
           {project.genre}

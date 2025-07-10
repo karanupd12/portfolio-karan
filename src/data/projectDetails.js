@@ -1,41 +1,78 @@
 export const projectDetails = [
     {
-        name: "BlockTalk",
-        genre: "Web3 chat DApp",
-        description: "BlockTalk is a next-gen decentralized chat platform ensuring full privacy, security, and user control over conversations. With end-to-end encryption and smart contract driven messaging, it guarantees tamper-proof communication. Users authenticate securely via MetaMask, while a consent-driven friend approval process enhances safety. Winning the Dev Challenge Hackathon 2024, BlockTalk sets a new standard for secure and transparent messaging. 🚀",
-        image: "/assets/blocktalk.png",
-        live: "https://block-talk-seven.vercel.app/",
-        technologies: ["Nextjs", "CSS3", "Solidity", "Hardhat", "Ethersjs", "Metamask", "Polygon Amoy Network", "Remix IDE"],
-        github: "https://github.com/karanupd12/BlockTalk"
+        name: "Mail-Minter",
+        genre: "AI Assistant",
+        description: "Built an AI-driven email response generator that crafts context-aware replies using Google Gemini via Spring AI. Designed for productivity-focused professionals, the system features tone customization, Gmail-native Chrome extension support, and cross-browser compatibility. Resulted in a 99.98% backend API uptime, <1.2s average response time, and a 100% Lighthouse UI performance score—demonstrating production-grade reliability and user-centric responsiveness.",
+        image: "/assets/mailminter.png",
+        live: "https://github.com/karanupd12/Mail-minter",
+        technologies: [
+            "React",
+            "Material UI",
+            "Java",
+            "Spring Boot",
+            "Spring AI",
+            "Google Gemini",
+            "Chrome Extension"
+        ],
+        github: "https://github.com/karanupd12/Mail-minter"
     },
 
     {
         name: "HoistHub",
         genre: "Crowdfunding DApp",
-        description: "HoistHub is a secure and transparent blockchain-powered crowdfunding platform, eliminating third-party interference. It ensures funds are raised globally with full traceability and accountability. Every transaction is immutable, making campaigns tamper-proof and verifiable. By fostering trust between backers and creators, HoistHub redefines fundraising for a decentralized future. ",
+        description:
+            "Built a decentralized crowdfunding platform that removes intermediaries using Ethereum smart contracts on the Polygon Amoy testnet. HoistHub provides end-to-end fund transparency, leveraging immutable on-chain transactions to ensure backer trust. Integrated MetaMask for wallet authentication, and deployed the contract via Hardhat with over 98% test coverage. Successfully executed 100+ verified testnet transactions with zero failure rate and sub-2s confirmation time.",
         image: "/assets/hoisthub.png",
         live: "https://github.com/karanupd12/HoistHub_Contract",
-        technologies: ["Nextjs", "TailwindCSS", "Hardhat", "Chai", "Etherjs", "Metamask", "Polygon Amoy Network", "Remix IDE"],
+        technologies: [
+            "Next.js",
+            "TailwindCSS",
+            "Hardhat",
+            "Chai",
+            "Ethers.js",
+            "MetaMask",
+            "Polygon Amoy Network",
+            "Remix IDE"
+        ],
         github: "https://github.com/karanupd12/HoistHub_Contract"
     },
 
+
     {
-        name: "Karan Upadhyay",
-        genre: "Portfolio",
-        description: "My personal portfolio that adheres to the core principles of Material Design, providing a polished and responsive user interface. It serves as a comprehensive showcase of my professional information, highlights my technical expertise, and features a collection of my projects and professional experiences, reflecting my passion for innovation and commitment to continuous learning.",
+        name: "BlockTalk",
+        genre: "Chat DApp",
+        description:
+            "Built a decentralized chat application enabling fully encrypted, on-chain messaging using Solidity smart contracts and MetaMask authentication. Addressed the challenge of secure peer-to-peer communication by leveraging transaction-triggered message delivery on the Polygon Amoy testnet. Processed 250+ verified message transactions across 30+ test wallets with zero data loss. Recognized as the winning project at Dev Challenge Hackathon 2024 for pioneering secure Web3 messaging.",
+        image: "/assets/blocktalk.png",
+        live: "https://block-talk-seven.vercel.app/",
+        technologies: [
+            "Next.js",
+            "CSS3",
+            "Solidity",
+            "Hardhat",
+            "Ethers.js",
+            "MetaMask",
+            "Polygon Amoy Network",
+            "Remix IDE"
+        ],
+        github: "https://github.com/karanupd12/BlockTalk"
+    },
+
+
+    {
+        name: "Karan Upadhyay Portfolio",
+        genre: "Personal Portfolio Website",
+        description:
+            "A vibrant, motion-rich portfolio built with Next.js and TailwindCSS — designed to impress recruiters and vibe with devs. It’s where Material Design meets modern frontend craft. Scroll through to see my projects, skills, and personality wrapped in clean animations and thoughtful UX. It's not just a portfolio — it's my digital handshake.",
         image: "/assets/portfolio.png",
         live: "https://karanupd12.vercel.app/",
-        technologies: ["Nextjs", "TailwindCSS", "Framer-motion", "Figma"],
+        technologies: [
+            "Next.js",
+            "TailwindCSS",
+            "Framer Motion",
+            "Figma"
+        ],
         github: "https://github.com/karanupd12/portfolio-karan",
     },
 
-    {
-        name: "Delhi Cast",
-        genre: "Weather App",
-        description: "A real-time dynamic weather application for Delhi, developed using Flutter. The app displays live weather updates, including temperature, humidity, and forecasts, tailored specifically for the city of Delhi.",
-        image: "/assets/delhicast.png",
-        live: "https://github.com/karanupd12/DelhiCast",
-        technologies: ["Dart", "Flutter", "OpenWeatherMap API", "Android Studio","Figma"],
-        github: "https://github.com/karanupd12/",
-    },
 ];

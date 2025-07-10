@@ -47,7 +47,7 @@ const Navbar = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: isVisible ? 0 : -20, opacity: isVisible ? 1 : 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed top-4 left-0 right-0 z-50 w-full px-4"
+        className="fixed top-2 md:top-4 left-0 right-0 z-50 w-full px-3 md:px-4"
       >
         <div className="max-w-4xl mx-auto">
           <div className="relative overflow-hidden bg-neutral-800/90 backdrop-blur-md border border-neutral-700 shadow-lg rounded-full">
@@ -57,7 +57,7 @@ const Navbar = () => {
               className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-300"
             />
 
-            {/* Desktop menu */}
+            {/* Desktop menu - Only show on medium screens and up */}
             <div className="hidden md:flex items-center justify-between px-6 py-2">
               <Link href="#" className="text-white font-thin tracking-wider">@karanupd12</Link>
               
@@ -87,30 +87,30 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Mobile menu toggle */}
-            <div className="md:hidden flex justify-between items-center p-3">
-              <Link href="#hero" className="text-white font-thin tracking-wider">PORTFOLIO</Link>
+            {/* Mobile menu toggle - Only show on small screens */}
+            <div className="flex md:hidden justify-between items-center px-3 py-2">
+              <Link href="#hero" className="text-white font-thin tracking-wider text-sm">PORTFOLIO</Link>
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-full bg-neutral-800 text-white"
+                className="p-1.5 rounded-full bg-neutral-700/50 text-white hover:bg-neutral-700 transition-colors"
               >
-                {isOpen ? <X size={18} /> : <Menu size={18} />}
+                {isOpen ? <X size={16} /> : <Menu size={16} />}
               </button>
             </div>
           </div>
         </div>
       </motion.nav>
       
-      {/* Mobile menu - positioning adjusted */}
+      {/* Mobile menu - Only show when burger menu is open */}
       <AnimatePresence>
         {isOpen && (
           <motion.div 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed top-20 left-5 right-5 z-40 bg-neutral-800/95 backdrop-blur-md border border-neutral-700 rounded-xl shadow-lg md:hidden"
+            className="fixed top-16 md:top-20 left-3 right-3 md:left-4 md:right-4 z-40 bg-neutral-800/95 backdrop-blur-md border border-neutral-700 rounded-xl shadow-lg md:hidden"
           >
-            <div className="max-w-4xl mx-auto p-2">
+            <div className="p-2">
               {navItems.map((item, index) => (
                 <motion.div
                   key={index}
@@ -121,8 +121,10 @@ const Navbar = () => {
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center space-x-3 p-3 my-1 rounded-lg ${
-                      activeSection === item.href.substring(1) ? 'bg-blue-600/20 text-white border-l-2 border-blue-400' : 'text-neutral-300 hover:bg-neutral-700/50'
+                    className={`flex items-center space-x-3 p-3 my-1 rounded-lg transition-colors ${
+                      activeSection === item.href.substring(1) 
+                        ? 'bg-blue-600/20 text-white border-l-2 border-blue-400' 
+                        : 'text-neutral-300 hover:bg-neutral-700/50'
                     }`}
                   >
                     <item.icon size={18} className={activeSection === item.href.substring(1) ? 'text-blue-400' : ''} />
@@ -144,7 +146,7 @@ const Navbar = () => {
             exit={{ scale: 0, opacity: 0 }}
             whileHover={{ scale: 1.1 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-6 right-6 z-30 p-2 rounded-full bg-blue-600 border border-blue-500/50 text-white shadow-lg"
+            className="fixed bottom-6 right-6 z-30 p-2 rounded-full bg-blue-600 border border-blue-500/50 text-white shadow-lg hover:bg-blue-700 transition-colors"
           >
             <ChevronUp size={20} />
           </motion.button>

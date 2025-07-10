@@ -7,10 +7,9 @@ import { SiLeetcode } from 'react-icons/si';
 
 const Hero = () => {
   const designations = [
-    "Full Stack Developer",
-    "DApp | Web3 Enthusiast", 
-    "NLP | DeFi | DAOs",
-    "Java Programmer",
+    "> Full Stack Developer",
+    "> Web3 | ML Enthusiast",
+    "> Java Programmer"
   ];
   
   const [currentDesignation, setCurrentDesignation] = useState(0);
@@ -60,11 +59,11 @@ const Hero = () => {
     <motion.section
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ 
-        duration: 1, 
+      transition={{
+        duration: 1,
         ease: "easeInOut",
         delayChildren: 0.3,
-        staggerChildren: 0.2
+        staggerChildren: 0.2,
       }}
       id="home"
       className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
@@ -77,8 +76,7 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Text Content */}
           <div className="text-white md:space-y-3 text-center md:text-left">
-
-            {/* Designation */}
+            {/* Designation - Hidden on Mobile */}
             <AnimatePresence mode="wait">
               <motion.h2
                 key={currentDesignation}
@@ -86,13 +84,15 @@ const Hero = () => {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -20, opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="mb-4 text-xl md:text-2xl font-light tracking-widest uppercase text-blue-400"
+                className="mb-4 text-xl md:text-2xl font-light tracking-widest uppercase text-violet-400 "
               >
                 {designations[currentDesignation]}
               </motion.h2>
             </AnimatePresence>
 
-            <span className=" hidden mb-3 text-xl md:text-2xl font-light text-neutral-300">Hi There, I'm</span>
+            <span className=" hidden mb-3 text-xl md:text-2xl font-light text-neutral-300">
+              Hi There, I'm
+            </span>
 
             {/* Name */}
             <motion.h1
@@ -101,11 +101,9 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl sm:text-6xl md:text-6xl lg:text-8xl font-black leading-tight tracking-tight relative"
             >
-
               <span className="mb-2 block text-transparent bg-clip-text bg-white">
                 KARAN UPADHYAY
               </span>
-
             </motion.h1>
 
             {/* Quote */}
@@ -115,7 +113,8 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="mb-3 text-base sm:text-lg md:text-xl font-light max-w-2xl text-neutral-300 mx-auto md:mx-0"
             >
-            "From a centralized past to a decentralized future, I build pathways where innovation and precision converge"
+              "From a centralized past to a decentralized future, I build
+              pathways where innovation and precision converge"
             </motion.p>
 
             {/* Action Buttons */}
@@ -171,7 +170,15 @@ const Hero = () => {
             className="flex items-center justify-center md:justify-end"
           >
             <div className="relative w-72 sm:w-96 md:w-[500px] aspect-square rounded-2xl overflow-hidden shadow-2xl">
-              <Image src="/assets/karan2.jpg" alt="Karan Upadhyay" fill sizes="(max-width: 768px) 256px, (max-width: 1200px) 448px, 576px" priority quality={100} className="object-cover object-center hover:scale-105 transition-transform duration-300" />
+              <Image
+                src="/assets/karan2.jpg"
+                alt="Karan Upadhyay"
+                fill
+                sizes="(max-width: 768px) 256px, (max-width: 1200px) 448px, 576px"
+                priority
+                quality={100}
+                className="object-cover object-center hover:scale-105 transition-transform duration-300"
+              />
             </div>
           </motion.div>
         </div>
