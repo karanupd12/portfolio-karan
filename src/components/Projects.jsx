@@ -60,7 +60,7 @@ const Projects = () => {
           alt={project.name}
           className="w-full h-full object-contain sm:object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
         />
-        <span className="absolute top-3 right-3 text-black bg-white px-3 py-1 rounded-full text-xs font-medium">
+        <span className="absolute top-3 right-3 text-black bg-violet-400 px-3 py-1 rounded-full text-xs font-medium">
           {project.genre}
         </span>
       </div>

@@ -1,4 +1,25 @@
 export const projectDetails = [
+    
+    {
+        name: "Asgard",
+        genre: "Web3 Drive",
+        description: "Built a decentralized file storage platform that enables secure, permanent file uploads with blockchain-verified ownership. Users can store files on IPFS, manage access permissions through smart contracts, and share content without centralized control. Features automatic MetaMask integration, real-time gallery viewing, and smart access control. Achieved 7x faster transactions than Ethereum with 99.998% cost reduction, delivering enterprise-grade performance on Polygon testnet.",
+        image: "/assets/asgard.png",
+        live: "https://asgard-realm.vercel.app/",
+        technologies: [
+            "React",
+            "Tailwind CSS",
+            "Solidity",
+            "Ethers.js",
+            "Hardhat",
+            "IPFS",
+            "Pinata",
+            "Polygon",
+            "MetaMask",
+        ],
+        github: "https://github.com/karanupd12/Asgard"
+    },
+    
     {
         name: "Mail-Minter",
         genre: "AI Assistant",
