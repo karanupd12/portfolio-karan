@@ -1,8 +1,8 @@
-import AnimatedBackground from '../components/AnimatedBackground';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import '../styles/globals.css';
 import Head from 'next/head';
+import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }) {
   return(
@@ -10,10 +10,11 @@ function MyApp({ Component, pageProps }) {
     <Head>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <AnimatedBackground />
-    <Navbar />
-    <Component {...pageProps} />
-    <Footer />
+    <Layout>
+      <Navbar />
+      <Component {...pageProps} />
+      <Footer />
+    </Layout>
     </>
   );
 }

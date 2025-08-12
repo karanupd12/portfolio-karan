@@ -1,16 +1,15 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { User, FolderCode, Code, Layers, Send, Menu, X, ChevronUp } from 'lucide-react';
+import { User, FolderCode, Code, Layers, Send, Menu, X, ArrowUp } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState("home");
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const lastScrollY = useRef(0);
 
-  // Nav items
   const navItems = [
     { name: "About", icon: User, href: "#about" },
     { name: "Skills", icon: Code, href: "#skills" },
@@ -19,136 +18,135 @@ const Navbar = () => {
     { name: "Contact", icon: Send, href: "#footer" }
   ];
 
-  // Handle scroll
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (latest) => {
-    
     setIsVisible(latest <= lastScrollY.current || latest < 100 || isOpen);
-    
-    // Update scroll progress indicator
-    const scrollPercent = (latest / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-    setScrollProgress(Math.min(scrollPercent, 100));
-    
-    // Update active section 
+    setShowBackToTop(latest > 300); // Show button after scrolling 300px
+
     navItems.forEach(item => {
       const section = document.querySelector(item.href);
       if (section && section.getBoundingClientRect().top < 200 && section.getBoundingClientRect().bottom > 200) {
         setActiveSection(item.href.substring(1));
       }
     });
-    
+
     lastScrollY.current = latest;
   });
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
       {/* Navbar */}
-      <motion.nav 
+      <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: isVisible ? 0 : -20, opacity: isVisible ? 1 : 0 }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed top-2 md:top-4 left-0 right-0 z-50 w-full px-3 md:px-4"
+        transition={{ type: "spring", stiffness: 250, damping: 25 }}
+        className="fixed top-3 left-0 right-0 z-50 px-4"
       >
-        <div className="max-w-4xl mx-auto">
-          <div className="relative overflow-hidden bg-neutral-800/90 backdrop-blur-md border border-neutral-700 shadow-lg rounded-full">
-            {/* Progress bar */}
-            <motion.div 
-              style={{ width: `${scrollProgress}%` }}
-              className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-300"
-            />
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center justify-between px-4 py-2 bg-neutral-800/80 rounded-full backdrop-blur-sm">
+            {/* Logo */}
+            <Link href="#home" className="text-gray-300 text-md font-normal tracking-wide hover:text-white transition-colors">
+              @karanupd12
+            </Link>
 
-            {/* Desktop menu - Only show on medium screens and up */}
-            <div className="hidden md:flex items-center justify-between px-6 py-2">
-              <Link href="#" className="text-white font-thin tracking-wider">@karanupd12</Link>
-              
-              <div className="flex space-x-6">
-                {navItems.map((item, index) => (
-                  <Link 
-                    key={index}
-                    href={item.href}
-                    className="relative group py-2"
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-4">
+              {navItems.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className="group flex items-center space-x-1 px-2"
+                >
+                  <item.icon
+                    className={`w-3.5 h-3.5 transition-colors ${
+                      activeSection === item.href.substring(1)
+                        ? 'text-gray-100'
+                        : 'text-gray-500 group-hover:text-gray-300'
+                    }`}
+                  />
+                  <span
+                    className={`text-xs transition-colors ${
+                      activeSection === item.href.substring(1)
+                        ? 'text-gray-100'
+                        : 'text-gray-500 group-hover:text-gray-300'
+                    }`}
                   >
-                    <div className="flex items-center space-x-2">
-                      <item.icon className={`w-4 h-4 ${activeSection === item.href.substring(1) ? 'text-blue-400' : 'text-neutral-500 group-hover:text-neutral-300'}`} />
-                      <span className={`text-sm ${activeSection === item.href.substring(1) ? 'text-white' : 'text-neutral-400 group-hover:text-neutral-200'}`}>
-                        {item.name}
-                      </span>
-                    </div>
-                    
-                    {/* Active indicator */}
-                    {activeSection === item.href.substring(1) && (
-                      <motion.div 
-                        layoutId="activeIndicator"
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-400"
-                      />
-                    )}
-                  </Link>
-                ))}
-              </div>
+                    {item.name}
+                  </span>
+                </Link>
+              ))}
             </div>
 
-            {/* Mobile menu toggle - Only show on small screens */}
-            <div className="flex md:hidden justify-between items-center px-3 py-2">
-              <Link href="#hero" className="text-white font-thin tracking-wider text-sm">PORTFOLIO</Link>
-              <button
+            {/* Mobile Toggle */}
+            <div className="md:hidden">
+              <motion.button
+                whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-1.5 rounded-full bg-neutral-700/50 text-white hover:bg-neutral-700 transition-colors"
+                className="p-2 rounded-md bg-transparent text-gray-300 hover:text-white"
               >
-                {isOpen ? <X size={16} /> : <Menu size={16} />}
-              </button>
+                {isOpen ? <X size={18} /> : <Menu size={18} />}
+              </motion.button>
             </div>
           </div>
         </div>
       </motion.nav>
-      
-      {/* Mobile menu - Only show when burger menu is open */}
+
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="fixed top-16 md:top-20 left-3 right-3 md:left-4 md:right-4 z-40 bg-neutral-800/95 backdrop-blur-md border border-neutral-700 rounded-xl shadow-lg md:hidden"
-          >
-            <div className="p-2">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.05 }}
-                >
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.4 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
+              onClick={() => setIsOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="fixed top-16 left-4 right-4 z-50 bg-[#0d1117]/95 backdrop-blur-lg rounded-md border border-gray-700/20 md:hidden"
+            >
+              <div className="p-2">
+                {navItems.map((item, index) => (
                   <Link
+                    key={index}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center space-x-3 p-3 my-1 rounded-lg transition-colors ${
-                      activeSection === item.href.substring(1) 
-                        ? 'bg-blue-600/20 text-white border-l-2 border-blue-400' 
-                        : 'text-neutral-300 hover:bg-neutral-700/50'
+                    className={`flex items-center space-x-3 p-3 rounded-md ${
+                      activeSection === item.href.substring(1)
+                        ? 'text-white'
+                        : 'text-gray-400 hover:text-gray-200'
                     }`}
                   >
-                    <item.icon size={18} className={activeSection === item.href.substring(1) ? 'text-blue-400' : ''} />
-                    <span>{item.name}</span>
+                    <item.icon size={16} />
+                    <span className="text-sm">{item.name}</span>
                   </Link>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-      
-      {/* Back to top button */}
+
+      {/* Back to Top Button */}
       <AnimatePresence>
-        {scrollProgress > 20 && (
+        {showBackToTop && (
           <motion.button
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            whileHover={{ scale: 1.1 }}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-6 right-6 z-30 p-2 rounded-full bg-blue-600 border border-blue-500/50 text-white shadow-lg hover:bg-blue-700 transition-colors"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={scrollToTop}
+            className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-neutral-800/80 backdrop-blur-sm text-gray-300 hover:text-white hover:bg-neutral-700/80 transition-colors shadow-lg"
           >
-            <ChevronUp size={20} />
+            <ArrowUp size={18} />
           </motion.button>
         )}
       </AnimatePresence>

@@ -26,11 +26,11 @@ const achievementDetails = [
     {
         title: "Coding Proficiency",
         metric: "Problems Solved",
-        count: 750,
+        count: 1000,
         suffix: "+",
         description: [
-            "Knight @LeetCode (Max Rating - 1868, among top 5%)",
-            "Solved over 800 problems across multiple coding platforms",
+            "Knight @LeetCode (Max Rating - 1868, among top 10%)",
+            "Solved over 1000+ problems across multiple coding platforms",
             "Ranked among top 4% of Java leetcoders globally"
         ],
         image: "/assets/leetcode.png"
@@ -41,7 +41,7 @@ const achievementDetails = [
         count: 8.1,
         suffix: "",
         description: [
-            "Cumulative GPA: 8.13 | SGPA: 8.96",
+            "Cumulative GPA: 8.3 | SGPA: 9.1",
             "Proficient in Core & Advanced Java, Spring Boot & Microservices",
             "Specialized in Data Structures and Algorithm analysis",
             "Certified Ethereum Developer - Infosys",

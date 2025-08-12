@@ -1,5 +1,13 @@
 export const experienceDetails = [
     {
+        company: "Bluestock Fintech",
+        role: "SDE Intern",
+        description: "Contributed to the design and development of a portfolio dashboard, ensuring seamless integration between user interface and backend services. Collaborated on database architecture and optimization to maintain data accuracy, consistency, and performance. Conducted thorough testing of application features and workflows to ensure functionality, reliability, and a smooth user experience.",
+        certificate: "https://drive.google.com/file/d/1LNUu_fkAZWwkkAly1ecLnqXf0JB8jSa3/view",
+        technologies: ["React", "REST API", "Postman", "PostgreSQL"],
+        duration: "March 2025 - May 2024"
+    },
+    {
         company: "CSRBOX",
         role: "Web Developer Intern",
         description: "Led frontend development for WeCare, an SDG-driven resource donation platform facilitating donations of food, clothing, books, and volunteering services. Integrated automated user communication and maintained website responsiveness.",

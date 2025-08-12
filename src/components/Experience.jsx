@@ -1,142 +1,127 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { FaCertificate, FaChevronRight } from "react-icons/fa";
-import Link from "next/link";
+import React, { useState } from "react";
+import { FaFolder, FaFolderOpen, FaChevronDown } from "react-icons/fa";
 import { experienceDetails } from "../data/experienceDetails";
+import { motion } from "framer-motion";
 
 const Experience = () => {
-  const sectionRef = useRef(null);
+  const [openIndex, setOpenIndex] = useState(null);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
+  const toggleOpen = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const isAnyOpen = openIndex !== null;
 
   return (
-    <div
+    <section
       id="experience"
-      ref={sectionRef}
-      className="min-h-screen flex items-center justify-center text-white py-16 sm:py-20 px-4 md:px-8 relative overflow-hidden w-full"
+      className="w-full px-4 md:px-8 py-16 sm:py-20 text-white"
     >
-      {/* Subtle Grid Background */}
+      {/* Section Title */}
       <motion.div
-        className="absolute inset-0 opacity-5 pointer-events-none"
-        style={{ y: backgroundY }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-12"
       >
-        <div className="w-full h-full bg-neutral-950" />
+        <h2 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight">
+          <span className="bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-600 bg-clip-text text-transparent">
+            Work
+          </span>{" "}
+          <span className="text-neutral-200">Experience</span>
+        </h2>
+        <motion.div
+          className="h-1 w-16 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mb-4"
+          initial={{ width: 0 }}
+          whileInView={{ width: "4rem" }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        />
+        <p className="text-neutral-300 max-w-xl mx-auto text-base md:text-lg font-light">
+          Project roles and Responsibilities.
+        </p>
       </motion.div>
 
-      <div className="w-full relative z-10 px-4 sm:px-8 md:px-16 lg:px-24">
-        {/* Section Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
-        >
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-3 tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.8 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <span className="inline-block relative">
-              <span className="bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-600 bg-clip-text text-transparent">
-                Work
-              </span>
-              <motion.span
-                className="absolute -bottom-2 left-0 w-full h-[3px] bg-gradient-to-r from-blue-500 to-indigo-500"
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                viewport={{ once: false, amount: 0.8 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              />
-            </span>{" "}
-            <span className="text-neutral-200">Experience</span>
-          </motion.h2>
-          <motion.p
-            className="text-neutral-300 max-w-xl mx-auto text-base md:text-lg font-light"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: false, amount: 0.8 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-          >
-            Professional experience, project roles and positions I've held over
-            time
-          </motion.p>
-        </motion.div>
-
-        {/* Timeline Container */}
-        <div className="relative w-full">
-          {/* Vertical Timeline Line */}
-          <div className="absolute top-0 bottom-0 left-6 sm:left-12 w-[2px] bg-gradient-to-b from-transparent via-blue-300/30 to-transparent"></div>
-
-          {experienceDetails.map((exp, index) => (
-            <motion.div
+      {/* Folder List */}
+      <div
+        className={`max-w-6xl mx-auto transition-all duration-300 ${
+          isAnyOpen ? "mb-12" : "mb-0"
+        }`}
+      >
+        {experienceDetails.map((exp, index) => {
+          const isOpen = openIndex === index;
+          return (
+            <div
               key={index}
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.2,
-                type: "spring",
-                stiffness: 100,
-              }}
-              className="relative mb-12 sm:mb-16 last:mb-0 pl-10 sm:pl-16"
+              className={`border border-neutral-600/50 rounded-lg mb-6 transition-all duration-300 overflow-hidden ${
+                isOpen
+                  ? "bg-neutral-800 shadow-lg shadow-blue-900/20"
+                  : "bg-neutral-800/60"
+              }`}
             >
-              {/* Experience Card */}
-              <div className="relative p-6 bg-neutral-800 backdrop-blur-sm border border-neutral-700/50 rounded-xl shadow-xl shadow-blue-900/10 max-w-4xl w-full">
-                {/* Year */}
-                <div className="absolute -left-16 sm:-left-24 top-0 text-blue-400 font-bold text-xs sm:text-sm bg-neutral-900/80 backdrop-blur-sm border border-blue-500/20 rounded-full py-1 px-2 sm:px-3 z-10">
-                  {exp.duration.split(" - ")[0]}
+              {/* Folder Header */}
+              <button
+                onClick={() => toggleOpen(index)}
+                className="w-full flex items-center justify-between px-6 py-4 hover:bg-neutral-800 transition-colors"
+              >
+                {/* Left: Icon + Role */}
+                <div className="flex items-center space-x-3">
+                  {isOpen ? (
+                    <FaFolderOpen className="text-blue-400 text-lg" />
+                  ) : (
+                    <FaFolder className="text-yellow-400 text-lg" />
+                  )}
+                  <span className="text-sm sm:text-base font-semibold text-neutral-100">
+                    {exp.role}
+                  </span>
                 </div>
 
-                {/* Details */}
-                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">
-                  {exp.role}
-                </h3>
-                <div className="text-blue-400 text-sm sm:text-base mb-3">
-                  {exp.company}
+                {/* Right: Duration + Arrow */}
+                <div className="flex items-center space-x-4">
+                  <span className="text-xs text-neutral-400 whitespace-nowrap">
+                    {exp.duration}
+                  </span>
+                  <FaChevronDown
+                    className={`text-neutral-400 transform transition-transform ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </div>
-                <p className="text-neutral-300 text-sm sm:text-base mb-4">
-                  {exp.description}
-                </p>
+              </button>
 
-                {/* Work Domain - Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {exp.technologies.slice(0, 4).map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2 py-1 bg-neutral-900 text-neutral-200 rounded-full text-xs hover:bg-blue-900/30 transition-colors"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              {/* Expanded Folder Content */}
+              {isOpen && (
+                <div className="px-8 py-6 border-t border-neutral-700/50 grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Left Column */}
+                  <div>
+                    <p className="text-blue-400 font-medium mb-3">{exp.company}</p>
+                    <p className="text-neutral-300 mb-6">{exp.description}</p>
+                  </div>
+
+                  {/* Right Column */}
+                  <div>
+                    <h4 className="text-neutral-200 font-semibold mb-3">
+                      Core Competencies
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="rounded-full bg-neutral-900 px-3 py-1 text-xs text-neutral-200 hover:bg-blue-900/30 transition-colors"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-
-                {/* Relevant Link */}
-                {exp.certificate && (
-                  <Link
-                    href={exp.certificate}
-                    target="_blank"
-                    className="inline-flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 transition-colors duration-300 text-xs group/link"
-                  >
-                    <FaCertificate size={12} className="text-amber-400" />
-                    <span className="group-hover/link:underline">Checkout</span>
-                    <FaChevronRight className="group-hover/link:translate-x-0.5 transition-transform" />
-                  </Link>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              )}
+            </div>
+          );
+        })}
       </div>
-    </div>
+    </section>
   );
 };
 

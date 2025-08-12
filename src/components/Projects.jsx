@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { projectDetails } from "../data/projectDetails";
 import Link from "next/link";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 const Projects = () => {
@@ -43,126 +43,147 @@ const Projects = () => {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.3 }}
       variants={fadeIn}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      whileHover={{ y: -5, scale: 1.02 }}
       className={`${
         isMobile ? "w-full" : "flex-1"
-      } bg-white/10 rounded-xl border border-neutral-800 shadow-lg hover:shadow-xl hover:border-blue-900 transition-all duration-300`}
+      } group rounded-2xl overflow-hidden  transition-all duration-500 bg-neutral-800/75 shadow-lg hover:shadow-xl border border-gray-800/30`}
     >
-      <div
-        className={`overflow-hidden rounded-t-xl relative ${
-          isMobile ? "h-48" : "h-56"
-        }`}
-      >
+      {/* Project Image */}
+      <div className={`relative overflow-hidden ${isMobile ? "h-48" : "h-56"}`}>
         <img
           src={project.image}
           alt={project.name}
-          className="w-full h-full object-contain sm:object-cover object-center transform group-hover:scale-110 transition-transform duration-700"
+          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
         />
-        <span className="absolute top-3 right-3 text-black bg-violet-400 px-3 py-1 rounded-full text-xs font-medium">
-          {project.genre}
-        </span>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        
+        {/* Genre Badge */}
+        <div className="absolute top-4 right-4">
+          <span className="px-3 py-1.5 bg-blue-600/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full border border-blue-500/30 shadow-lg">
+            {project.genre}
+          </span>
+        </div>
+
+        {/* Quick Actions Overlay */}
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+          <Link
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-all duration-200"
+          >
+            <FaExternalLinkAlt className="w-4 h-4" />
+          </Link>
+          <Link
+            href={project.github || myGithub}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-all duration-200"
+          >
+            <FaGithub className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
 
-      <div className={`${isMobile ? "p-5" : "p-6"}`}>
-        <h3 className="text-2xl font-bold mb-3 text-white">{project.name}</h3>
-        <p
-          className={`text-neutral-300 leading-relaxed mb-5 ${
-            !isMobile && "min-h-[80px]"
-          }`}
-        >
+      {/* Project Content */}
+      <div className={`${isMobile ? "p-6" : "p-7"} space-y-4`}>
+        {/* Project Title */}
+        <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+          {project.name}
+        </h3>
+
+        {/* Project Description */}
+        <p className={`text-gray-300 leading-relaxed text-sm sm:text-base ${
+          !isMobile && "min-h-[80px]"
+        }`}>
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-6">
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-2 pt-2">
           {project.technologies.map((tech, techIndex) => (
             <span
               key={techIndex}
-              className="bg-neutral-900 text-white text-xs px-2.5 py-1 rounded-md font-thin"
+              className="px-3 py-1.5 bg-gray-800/60 backdrop-blur-sm text-gray-300 text-xs font-medium rounded-xl border border-gray-700/40 hover:border-gray-600/60 hover:bg-gray-700/60 transition-all duration-200"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="flex justify-between items-center">
-          <div>
-            <a
-              href={project.live}
+        {/* Action Buttons */}
+        <div className="flex items-center justify-between pt-4 border-t border-gray-800/40">
+          {/* Live Demo */}
+          <Link
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/demo flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-all duration-300"
+          >
+            <div className="flex items-center gap-2">
+              <div className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </div>
+              <span className="text-sm font-medium">Live Demo</span>
+            </div>
+            <FaExternalLinkAlt className="w-3 h-3 opacity-70 group-hover/demo:opacity-100 transition-opacity duration-300" />
+          </Link>
+
+          {/* Source Code Button */}
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              href={project.github || myGithub}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center hover:text-blue-400 transition-all duration-200"
+              className="group/code inline-flex items-center gap-2 px-4 py-2.5 bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 text-gray-300 rounded-xl hover:bg-gray-700/80 hover:border-gray-600/60 hover:text-white transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
             >
-              <span className="font-medium text-sm">
-                {isMobile ? "Try out → " : "Checkout : "}
-              </span>
-              <span className="ml-2 text-xs bg-blue-900 rounded-full px-2 py-1 inline-flex items-center">
-                <span className="relative mr-1 flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                </span>
-                Live
-              </span>
-            </a>
-          </div>
-
-          <Link
-            href={project.github || myGithub}
-            target="_blank"
-            className="p-2 text-neutral-300 hover:text-white bg-neutral-800 hover:bg-blue-900 rounded-lg transition-colors duration-200"
-          >
-            <FaGithub className="text-lg" />
-          </Link>
+              <span>Source</span>
+              <FaGithub className="w-4 h-4 transition-transform duration-300 group-hover/code:scale-110" />
+            </Link>
+          </motion.div>
         </div>
       </div>
     </motion.div>
   );
 
   return (
-    <div id="projects" className="min-h-screen text-white py-16 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="projects"
+      className="relative min-h-screen py-20 sm:py-24 md:py-32 overflow-hidden"
+    >
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        {/* Section Title */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
         >
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-3 tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.8 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <span className="inline-block relative">
-              <span className="bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-600 bg-clip-text text-transparent">
-                Projects
-              </span>
-              <motion.span
-                className="absolute -bottom-2 left-0 w-full h-[3px] bg-gradient-to-r from-blue-500 to-indigo-500"
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                viewport={{ once: false, amount: 0.8 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              />
+          <h2 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight">
+            <span className="bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-600 bg-clip-text text-transparent">
+              Projects
             </span>{" "}
-            <span className="text-neutral-200">That Delivers</span>
-          </motion.h2>
-          <motion.p
-            className="text-neutral-300 max-w-xl mx-auto text-base md:text-lg font-light"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: false, amount: 0.8 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-          >
-            Building innovative and scalable solutions across Web2 and Web3
-            ecosystems
-          </motion.p>
+            <span className="text-neutral-200">That Deliver</span>
+          </h2>
+          <motion.div
+            className="h-1 w-16 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mb-4"
+            initial={{ width: 0 }}
+            whileInView={{ width: "4rem" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          />
+          <p className="text-neutral-300 max-w-xl mx-auto text-base md:text-lg font-light">
+            Building practical and scalable solutions across web2 and web3 ecosystems.
+          </p>
         </motion.div>
 
-        <div className="block md:hidden space-y-8">
+        {/* Mobile Layout */}
+        <div className="block lg:hidden space-y-8">
           {projectDetails.map((project, index) => (
             <ProjectCard
               key={`mobile-${index}`}
@@ -173,37 +194,44 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="relative hidden md:block">
+        {/* Desktop Layout */}
+        <div className="relative hidden lg:block">
+          {/* Navigation Buttons */}
           {totalPages > 1 && (
             <>
-              <button
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={() => handleNavigation("left")}
                 disabled={activeIndex === 0}
-                className={`absolute left-0 top-1/2 -translate-y-1/2 -ml-5 z-10 bg-neutral-800 rounded-full p-2 text-white shadow-lg transition-all duration-200 ${
+                className={`absolute left-0 top-1/2 -translate-y-1/2 -ml-6 z-20 p-4 rounded-2xl backdrop-blur-xl border shadow-2xl transition-all duration-300 ${
                   activeIndex === 0
-                    ? "opacity-50 cursor-not-allowed"
-                    : "hover:bg-blue-600"
+                    ? "bg-gray-800/40 border-gray-800/40 text-gray-600 cursor-not-allowed"
+                    : "bg-[#0f0f0f]/80 border-gray-700/50 text-white hover:bg-blue-600/80 hover:border-blue-500/50 hover:shadow-blue-600/20"
                 }`}
                 aria-label="Previous projects"
               >
-                <MdKeyboardArrowLeft className="text-xl" />
-              </button>
+                <MdKeyboardArrowLeft className="text-2xl" />
+              </motion.button>
 
-              <button
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={() => handleNavigation("right")}
                 disabled={activeIndex === totalPages - 1}
-                className={`absolute right-0 top-1/2 -translate-y-1/2 -mr-5 z-10 bg-neutral-800 rounded-full p-2 text-white shadow-lg transition-all duration-200 ${
+                className={`absolute right-0 top-1/2 -translate-y-1/2 -mr-6 z-20 p-4 rounded-2xl backdrop-blur-xl border shadow-2xl transition-all duration-300 ${
                   activeIndex === totalPages - 1
-                    ? "opacity-50 cursor-not-allowed"
-                    : "hover:bg-blue-600"
+                    ? "bg-gray-800/40 border-gray-800/40 text-gray-600 cursor-not-allowed"
+                    : "bg-[#0f0f0f]/80 border-gray-700/50 text-white hover:bg-blue-600/80 hover:border-blue-500/50 hover:shadow-blue-600/20"
                 }`}
                 aria-label="Next projects"
               >
-                <MdKeyboardArrowRight className="text-xl" />
-              </button>
+                <MdKeyboardArrowRight className="text-2xl" />
+              </motion.button>
             </>
           )}
 
+          {/* Projects Container */}
           <div
             ref={scrollRef}
             className="flex overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar"
@@ -212,7 +240,7 @@ const Projects = () => {
             {Array.from({ length: totalPages }).map((_, pageIndex) => (
               <div
                 key={pageIndex}
-                className="flex-none w-full flex space-x-6 snap-start"
+                className="flex-none w-full flex space-x-8 snap-start"
                 style={{ scrollSnapAlign: "start" }}
               >
                 {projectDetails
@@ -229,16 +257,19 @@ const Projects = () => {
             ))}
           </div>
 
+          {/* Pagination Dots */}
           {totalPages > 1 && (
-            <div className="flex justify-center space-x-2 mt-4">
+            <div className="flex justify-center items-center space-x-3 mt-8">
               {Array.from({ length: totalPages }).map((_, index) => (
-                <button
+                <motion.button
                   key={index}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
                   onClick={() => goToPage(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
+                  className={`rounded-full transition-all duration-300 ${
                     activeIndex === index
-                      ? "w-6 bg-blue-500"
-                      : "w-2 bg-neutral-700"
+                      ? "w-8 h-2 bg-blue-600"
+                      : "w-2 h-2 bg-gray-700 hover:bg-gray-600"
                   }`}
                   aria-label={`Go to page ${index + 1}`}
                 />
@@ -257,7 +288,7 @@ const Projects = () => {
           scrollbar-width: none;
         }
       `}</style>
-    </div>
+    </section>
   );
 };
 
