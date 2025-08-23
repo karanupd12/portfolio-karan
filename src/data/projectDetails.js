@@ -3,7 +3,7 @@ export const projectDetails = [
     {
         name: "Asgard",
         genre: "Web3 Drive",
-        description: "Built a decentralized file storage platform that enables secure, permanent file uploads with blockchain-verified ownership. Users can store files on IPFS, manage access permissions through smart contracts, and share content without centralized control. Features automatic MetaMask integration, real-time gallery viewing, and smart access control. Achieved 7x faster transactions than Ethereum with 99.998% cost reduction, delivering enterprise-grade performance on Polygon testnet.",
+        description: "Built a decentralized file storage platform that enables secure, permanent file uploads with blockchain-verified ownership. Users can store files on IPFS, manage access permissions through smart contracts, and share content without centralized control. Features automatic MetaMask integration, real-time gallery viewing, and smart access control. Delivered 2.1s transaction finality, <300ms file retrieval, and 7x lower transaction costs than Ethereum—demonstrating cutting-edge performance and true decentralized efficiency.",
         image: "/assets/asgard.png",
         live: "https://asgard-realm.vercel.app/",
         technologies: [
@@ -23,7 +23,7 @@ export const projectDetails = [
     {
         name: "Mail-Minter",
         genre: "AI Assistant",
-        description: "Built an AI-driven email response generator that crafts context-aware replies using Google Gemini via Spring AI. Designed for productivity-focused professionals, the system features tone customization, Gmail-native Chrome extension support, and cross-browser compatibility. Resulted in a 99.98% backend API uptime, <1.2s average response time, and a 100% Lighthouse UI performance score—demonstrating production-grade reliability and user-centric responsiveness.",
+        description: "Built an AI-driven email response generator that crafts context-aware replies using Google Gemini via Spring AI. Designed for productivity-focused professionals, the system features tone customization, Gmail-native Chrome extension support, and cross-browser compatibility. Achieved <1.2s average response time, 100% Lighthouse UI performance score, and successfully processed 100+ email contexts simultaneously—demonstrating production-grade reliability and user-centric efficiency.",
         image: "/assets/mailminter.png",
         live: "https://github.com/karanupd12/Mail-minter",
         technologies: [

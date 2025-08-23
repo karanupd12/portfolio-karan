@@ -9,11 +9,12 @@ export const educationDetails = [
             { name: "Java Programming"},
             { name: "Data Structures & Algorithms"},
             { name: "Object Oriented Programming"},
+            { name: "Database Management"},
             { name: "Operating Systems"},
             { name: "Computer Networks"},
-            { name: "Compiler Design"},
+            { name: "Artificial Intelligence"},
             { name: "Software Project Management"},
-            { name: "Database Management, etc."},
+            { name: "Agile Methodologies"},
         ],
     },
     {
@@ -32,11 +33,10 @@ export const educationDetails = [
 
 export const aboutMe = [
     {
-        me1: "As a pre-final year IT student at USICT, GGSIPU, I am passionate about building scalable and impactful solutions. With expertise in software engineering, blockchain, and full-stack development, I focus on creating decentralized applications that seamlessly integrate emerging technologies into real-world use cases.",
+        me1: "Hey, I’m Karan 👋 — a curious mind who loves turning ambitious ideas into software that actually works (and scales). Whether it’s building decentralized platforms, AI-powered assistants, or full-stack apps, I enjoy the thrill of solving tough problems and making technology feel effortless for people who use it.",
 
-        me2: "My journey has been shaped by hands-on experience in numerous hackathons, where I've had the opportunity to collaborate with diverse teams, winning some and losing others, but always learning valuable lessons from each. Additionally, I've worked on several projects focused Blockchain and AI-driven systems, which have helped me refine my skills in developing robust, scalable applications. I also hold certifications in Java, Spring Microservices, and Ethereum Development (Infosys), which have further strengthened my core technical expertise and deepened my understanding of modern development practices.",
+        me2: "I’ve dabbled in quite a lot — from crafting a storage platform that refuses to go down (99.9% uptime!), to creating an AI email sidekick that slashes reply times by 85% 🚀, to leading hackathon teams where sleepless nights somehow turned into award-winning projects. Along the way, I’ve picked up skills in Java Spring Boot, React, Solidity, PostgreSQL, and more… but honestly, what excites me most is seeing something I built spark real impact.",
 
-        me3: "I envision a future where technology shifts from centralized control to decentralized empowerment. By leveraging blockchain, AI, and distributed systems, I aim to contribute to a more secure, transparent, and efficient digital ecosystem, pushing the boundaries of innovation to shape a better future.",
-
+        me3: "Beyond my projects, I bring a strong foundation in problem-solving, demonstrated through a LeetCode Knight⚔️ rank (top 10% globally), 2⭐ at Codechef and over 1000+ coding challenges solved across platforms. With experience spanning internships, hackathons, and projects, I thrive in collaborative environments where innovation meets execution. I believe tech is about people — connecting, empowering, and making life a little smoother. So if you’re working on something exciting (or just love geeking out about great code), I’d love to connect.",
     }
 ];
