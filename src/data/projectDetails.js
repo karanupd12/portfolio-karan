@@ -1,9 +1,24 @@
 export const projectDetails = [
-    
+    {
+        name: "SpendWise",
+        genre: "Expense Tracker",
+        description: "A full-stack finance management platform enabling users to track income, categorize expenses, and visualize spending patterns in real time. Powered by Spring Boot with Spring Security, JWT authentication, and JPA ORM for secure SQL persistence, it ensures seamless data integrity and 99% authentication reliability. The React–Tailwind frontend delivers responsive analytics dashboards with Chart.js and automated email summaries via Brevo mailer service, accelerating user insights by 40% and establishing a scalable, production-grade architecture for personal finance intelligence.",
+        image: "/assets/spendwise.png",
+        live: "https://github.com/karanupd12/spend-wise-api",
+        technologies: [
+            "React",
+            "Tailwind CSS",
+            "Spring Boot",
+            "Spring Security",
+            "JWT",
+            "MySQL",
+        ],
+        github: "https://github.com/karanupd12/spend-wise-api"
+    },
     {
         name: "Asgard",
         genre: "Web3 Drive",
-        description: "Built a decentralized file storage platform that enables secure, permanent file uploads with blockchain-verified ownership. Users can store files on IPFS, manage access permissions through smart contracts, and share content without centralized control. Features automatic MetaMask integration, real-time gallery viewing, and smart access control. Delivered 2.1s transaction finality, <300ms file retrieval, and 7x lower transaction costs than Ethereum—demonstrating cutting-edge performance and true decentralized efficiency.",
+        description: "A decentralized file storage platform that enables secure, permanent file uploads with blockchain-verified ownership. Users can store files on IPFS, manage access permissions through smart contracts, and share content without centralized control. Features automatic MetaMask integration, real-time gallery viewing, and smart access control. Delivered 2.1s transaction finality, <300ms file retrieval, and 7x lower transaction costs than Ethereum—demonstrating cutting-edge performance and true decentralized efficiency.",
         image: "/assets/asgard.png",
         live: "https://asgard-realm.vercel.app/",
         technologies: [
@@ -23,7 +38,7 @@ export const projectDetails = [
     {
         name: "Mail-Minter",
         genre: "AI Assistant",
-        description: "Built an AI-driven email response generator that crafts context-aware replies using Google Gemini via Spring AI. Designed for productivity-focused professionals, the system features tone customization, Gmail-native Chrome extension support, and cross-browser compatibility. Achieved <1.2s average response time, 100% Lighthouse UI performance score, and successfully processed 100+ email contexts simultaneously—demonstrating production-grade reliability and user-centric efficiency.",
+        description: "An AI-driven email response generator that crafts context-aware replies using Google Gemini via Spring AI. Designed for productivity-focused professionals, the system features tone customization, Gmail-native Chrome extension support, and cross-browser compatibility. Achieved <1.2s average response time, 100% Lighthouse UI performance score, and successfully processed 100+ email contexts simultaneously—demonstrating production-grade reliability and user-centric efficiency.",
         image: "/assets/mailminter.png",
         live: "https://github.com/karanupd12/Mail-minter",
         technologies: [

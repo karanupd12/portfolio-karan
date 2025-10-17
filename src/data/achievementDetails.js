@@ -29,16 +29,16 @@ const achievementDetails = [
         count: 1000,
         suffix: "+",
         description: [
-            "Knight @LeetCode (Max Rating - 1868, among top 10%)",
+            "Knight @LeetCode (Max Rating - 1871, among top 5%)",
             "Solved over 1000+ problems across multiple coding platforms",
-            "Ranked among top 4% of Java leetcoders globally"
+            "Ranked among top 3% of Java leetcoders globally"
         ],
         image: "/assets/leetcode.png"
     },
     {
         title: "Academics",
         metric: "GPA",
-        count: 8.1,
+        count: 8.3,
         suffix: "",
         description: [
             "Cumulative GPA: 8.3 | SGPA: 9.1",
