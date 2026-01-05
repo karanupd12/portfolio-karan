@@ -16,8 +16,8 @@ import { SiLeetcode } from 'react-icons/si';
 const Hero = () => {
   const designations = [
     "Full Stack Developer",
-    "Web3 | ML Enthusiast", 
-    "Java Programmer"
+    "Java | Spring Boot | Microservices", 
+    "DSA | System Design"
   ];
   
   const [currentDesignation, setCurrentDesignation] = useState(0);
