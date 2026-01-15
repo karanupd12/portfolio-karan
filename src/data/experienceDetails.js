@@ -1,4 +1,13 @@
 export const experienceDetails = [
+
+    {
+        company: "Infosys Springboard",
+        role: "Artificial Intelligence Intern",
+        description: "Designed and implemented a deep learning-based scanner source identification system to automate forensic document analysis. Built robust data ingestion pipelines handling thousands of scanned images and optimized preprocessing workflows for improved model generalization. Enhanced training efficiency through dataset normalization and validation strategies, achieving reliable accuracy across multiple scanner types.",
+        certificate: "https://drive.google.com/file/d/1suprNxwvrWrBufMqi0YvgbgmyfANZ13l/view?usp=sharing",
+        technologies: ["Python", "Deep Learning", "CNNs", "Image Processing", "TensorFlow"],
+        duration: "Sep 2025 - Nov 2025"
+    },
     {
         company: "Bluestock Fintech",
         role: "SDE Intern",
@@ -8,19 +17,11 @@ export const experienceDetails = [
         duration: "March 2025 - May 2024"
     },
     {
-        company: "CSRBOX",
+        company: "IBM SkillBuild Program",
         role: "Web Developer Intern",
         description: "Led frontend development for WeCare, an SDG-driven resource donation platform facilitating donations of food, clothing, books, and volunteering services. Integrated automated user communication and maintained website responsiveness.",
         certificate: "https://drive.google.com/file/d/1LNUu_fkAZWwkkAly1ecLnqXf0JB8jSa3/view",
-        technologies: ["Web Development", "SDG driven"],
+        technologies: ["Web Development", "SDG driven", "HTML", "CSS", "Javascript"],
         duration: "July 2024 - Aug 2024"
-    },
-    {
-        company: "Edunet Foundation",
-        role: "Research Intern",
-        description: " Researched NFT verification techniques using computer vision, achieving 95% accuracy in detecting fraudulent digital assets. Contributed to the design of smart contracts for ERC-20 and ERC-721 tokens, enhancing security and compliance for digital asset transactions.",
-        certificate: "https://github.com/karanupd12/ERC-20-AmberToken",
-        technologies: ["Solidity", "Computer Vision", "Ethereum-Blockchain", "ERC-20"],
-        duration: "June 2024 - july 2024"
     },
 ];
